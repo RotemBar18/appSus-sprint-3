@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@1&display=swap');
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    background: linear-gradient(133deg, #5aedff 0%, #063c4e 100%);
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.book-details {
+    position: fixed;
+    text-align: center;
+    background: linear-gradient(133deg, #fa3eb8 0%, #ffdbff 100%);
+    padding: 20px;
+    border-radius: 15px;
+    top: 30px;
+    left: 18px;
+    min-width: 1590px;
+    min-height: 750px;
+}
+
+.book-preview {
+    outline: 4px solid #49C4C1;
+    outline-offset: 5px;
+    max-width: 300px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button {
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: rgb(223, 144, 255);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search-button {
+    background-color: rgb(98, 148, 255);
+    margin: 10px;
+}
+
+.on-sale {
+    color: rgb(147, 65, 255);
+    font-size: 20px;
+}
+
+input {
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+}

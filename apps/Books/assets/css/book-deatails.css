@@ -1,0 +1,48 @@
+    .book-details {
+        display: flex;
+        padding: 30px;
+        max-width: 700px;
+        margin: 0;
+        min-height: 60vh;
+        margin: auto;
+    }
+    
+    .main-details-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+    }
+    
+    .currency {
+        display: inline;
+    }
+    
+    .book-details img :not(.img-sail) {
+        width: 100%;
+        object-fit: contain;
+        margin-inline-end: 2rem;
+        min-height: 7rem;
+    }
+    
+    .on-sale {
+        font-weight: bold;
+        color: red;
+    }
+    
+    .go-back,
+    .txt-show-btn {
+        background-color: inherit;
+        border: 1px solid #333;
+        margin: 10px;
+        padding: 3px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    
+    .go-back:hover,
+    .txt-show-btn:hover {
+        color: whitesmoke;
+        background-color: #333;
+        transition: 0.5s;
+    }

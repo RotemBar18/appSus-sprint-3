@@ -1,0 +1,66 @@
+.book-app {
+    padding: 15px;
+}
+
+.books-list {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+    justify-content: center;
+}
+
+.book-preview {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.book-preview:hover {
+    opacity: 0.6;
+    transition-duration: 0.4s;
+    text-decoration: none;
+}
+
+.books-list a {
+    text-decoration: none;
+}
+
+.book-preview img:not(.currency) {
+    width: 100%;
+}
+
+.book-review,
+.book-filter {
+    padding: 15px 0;
+}
+
+.book-filter label:not(:first-of-type) {
+    margin-left: 10px;
+}
+
+.book-review input,
+.book-filter input {
+    margin-bottom: 10px;
+    height: 30px;
+    width: minmax(100px, 200px);
+    border-radius: 5%;
+    border: none;
+}
+
+.book-filter button {
+    display: none;
+}
+
+.currency {
+    width: 0.7rem;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}

@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: lightpink;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.app-header {
+    display: flex;
+    align-items: center;
+}
+.app-header ul {
+    display: flex;
+    margin-left: 20px;
+}
+.app-header li {
+    margin-left: 10px;
+}
+.app-header .active {
+    font-weight: bold;
+    color: red;
+}
+.app-header .active-nav {
+    font-weight: bold;
+    color: purple;
+}
+.clean-list {
+    list-style: none;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 10px 0;
+}
+.car-list > *:not(:first-child) {
+    margin-left: 20px;
+}
+.car-app {
+    padding: 5px 10px;
+}
+.car-app .add-btn {
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+.car-preview {
+    cursor: pointer;
+    box-shadow: 0 0px 3px 2px #7e7d7d78;
+    padding: 10px;
+    text-align: center;
+}
+.car-preview img {
+    width: 100px;
+}
+
+.car-filter {
+    padding: 15px 0;
+}
+.car-filter label:not(:first-of-type) {
+    margin-left: 10px;
+}
+.car-filter input {
+    margin-left: 5px;
+}
+.car-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    margin: 0 auto;
+}
+.car-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.car-details img {
+    width: 200px;
+}
+.car-details .actions {
+    padding: 10px 5px;
+}
+.car-details .actions > *:not(:first-child) {
+    margin-left: 8px;
+}
+footer {
+    padding: 20px 0;
+}

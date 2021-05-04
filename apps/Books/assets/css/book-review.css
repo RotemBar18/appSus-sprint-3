@@ -1,0 +1,118 @@
+.reviews-section {
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.btn-add-review {
+    padding: 3px;
+    border: 1px solid#333;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #ffd000;
+    margin: auto;
+    text-decoration: none;
+}
+
+.btn-add-review:hover {
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.3s;
+    background-color: #8a5a01;
+}
+
+.add-review-modal {
+    position: absolute;
+    width: 40%;
+    top: 30%;
+    right: 30%;
+    background-color: #f8e1b6f3;
+    padding: 2rem 0;
+    border-radius: 4px;
+}
+
+.add-review-modal form {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.add-review-modal h2 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(206, 203, 203);
+}
+
+.add-review-modal input {
+    height: 2rem;
+    max-width: 60%;
+    margin-bottom: 0.5rem;
+}
+
+.add-review-modal textarea {
+    border: none;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    outline: none;
+}
+
+.add-review-modal .btn-close {
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.review-rating-stars svg path {
+    stroke-width: 2px;
+}
+
+.review-rating-stars svg {
+    width: 2rem;
+}
+
+.star-active path {
+    fill: #ffd000;
+}
+
+.rating-stars-display {
+    display: flex;
+}
+
+.rating-stars-display svg {
+    width: 1.5rem;
+    margin-inline-end: 0.25rem;
+}
+
+.reviews-list {
+    /* min-height: 20rem;
+    max-height: 40rem; */
+    overflow: scroll;
+}
+
+.reviews-list-empty {
+    margin: auto;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+/* REVIEW DISPLAY*/
+
+.single-review {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgb(214, 212, 212);
+    margin: auto;
+}
+
+.single-review h4 {
+    font-size: 1.2rem;
+    margin-inline-end: 0.5rem;
+}
+
+.single-review span {
+    color: grey;
+    flex-grow: 1;
+    align-self: flex-end;
+}
+
+.rating-stars-display {
+    margin-top: 0.5rem;
+}

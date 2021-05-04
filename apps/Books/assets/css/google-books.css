@@ -1,0 +1,9 @@
+.btn-add {
+    background-color: inherit;
+    color: #333;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 20%;
+}

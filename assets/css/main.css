@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+.app-header{
+    display: flex;
+}
+
+.app-header{
+    display: flex;
+}
+
+.app-header ul{
+    display: flex;
+    list-style: none;
+}
+.app-header ul>*{
+    padding: 5px;
+}
