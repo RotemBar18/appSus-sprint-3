@@ -1,0 +1,68 @@
+.un-read {
+    font-weight: bold;
+}
+
+table {
+    border: 1px solid rgb(194, 188, 188);
+    border-collapse: collapse;
+    width: 70%;
+}
+
+tbody {
+    margin: auto;
+}
+
+tr {
+    border: 1px solid rgb(194, 188, 188);
+}
+
+td {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.mail-header {
+    border: none;
+}
+
+.mail-body {
+    border: none;
+}
+
+.row-disply-none {
+    border: none;
+    display: none;
+}
+
+.mail-header .mail-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.mail-send-form {
+    font-weight: bold;
+    padding: 5px;
+}
+
+.mail-address-from {
+    color: rgb(141, 139, 139);
+}
+
+
+/* <tr className={`mail-preview ` + checkIfRead(mail)} onClick={() => toggleMailShow(mail)}>
+                <td className="mail-letter-symbol">N</td>
+                <td className="mail-send-form">{mail.sendfrom}</td>
+                <td className="mail-title">{mail.title}</td>
+                <td className="mail-send-at">{mail.sentAt}</td>
+            </tr>
+            <tr className={`mail-header ` + checkIfMailOpen(mail)}>
+                <td className="mail-title" colSpan="3">{mail.title}</td>
+                <td className="btn-close" onClick={() => toggleMailShow(mail)}>X</td>
+            </tr>
+            <tr className={`mail-body ` + checkIfMailOpen(mail)}>
+                <td className="mail-send-from" >{mail.sendfrom}</td>
+                <td className="mail-address-from">{mail.mailAddress}</td>
+            </tr>
+            <tr className={`mail-body ` + checkIfMailOpen(mail)}>
+                <td className="mail-body" colSpan="4">{mail.body}</td>
+            </tr> */
