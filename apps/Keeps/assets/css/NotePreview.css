@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+.note-app {
+    display: flex;
+    flex-direction: column;
+}
+
+.note-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 200px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.note p{
+text-align: center;
+}
+
+.note-container {
+    height: fit-content;
+}
+
+.remove-btn {
+    position: absolute;
+    right: 0;
+    top: -1;
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    color: black;
+    border-radius: 0 0 0 3px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 1.3rem;
+}
+
+.remove-btn:hover {
+    background-color: red;
+    color: white;
+}
