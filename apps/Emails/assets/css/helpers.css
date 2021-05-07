@@ -1,0 +1,16 @@
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.clean-list {
+    list-style: none;
+    list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

@@ -1,19 +1,21 @@
-*{
+@import "../../apps/Emails/assets/css/mail-app.css";
+* {
     box-sizing: border-box;
 }
 
-.app-header{
+.app-header {
     display: flex;
 }
 
-.app-header{
+.app-header {
     display: flex;
 }
 
-.app-header ul{
+.app-header ul {
     display: flex;
     list-style: none;
 }
-.app-header ul>*{
+
+.app-header ul>* {
     padding: 5px;
 }

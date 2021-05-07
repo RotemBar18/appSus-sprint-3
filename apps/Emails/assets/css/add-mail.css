@@ -1,0 +1,66 @@
+.add-mails-section {
+    position: fixed;
+    width: 550px;
+    background-color: white;
+    border: 1px solid #333;
+    margin-left: 15px;
+    left: 15%;
+    top: 15%;
+}
+
+.add-mail-modal .header {
+    justify-content: space-between;
+    background-color: rgb(44, 43, 43);
+    height: 40px;
+    border-bottom: 1px solid #333;
+}
+
+.add-mail-modal button {
+    border: none;
+    background-color: inherit;
+    margin-right: 10px;
+    color: white;
+}
+
+.add-mail-title {
+    margin: 5px;
+    align-self: center;
+    color: white;
+}
+
+.add-mail-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-mail-form input {
+    border: none;
+    margin-bottom: 5px;
+}
+
+.add-mail-form label {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.add-mail-form .address,
+.add-mail-form .title {
+    border-bottom: 1px solid gray;
+    margin-top: 10px;
+}
+
+.add-mail-modal .btn-add-mail {
+    border: 1px solid #333;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgb(44, 199, 44);
+}
+
+.btn-add-mail.btn-save {
+    background-color: rgb(20, 141, 189);
+}
+
+.add-mail-body {
+    resize: none;
+}

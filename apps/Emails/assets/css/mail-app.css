@@ -1,0 +1,17 @@
+@import "./mails-list.css";
+@import "./mail-deatails.css";
+@import "./filter.css";
+@import "./side-bar.css";
+@import "./add-mail.css";
+@import "./mail-address-input.css";
+@import "./helpers.css";
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+h2 {
+    margin: auto;
+}

@@ -1,0 +1,17 @@
+.mail-filter {
+    text-align: center;
+}
+
+.mail-filter input,
+.filter-by {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: minmax(100px, 200px);
+    border-radius: 5%;
+    border: 1px solid rgb(160, 154, 154);
+}
+
+.filter-by {
+    cursor: pointer;
+}
