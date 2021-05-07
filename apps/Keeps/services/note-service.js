@@ -52,6 +52,7 @@ function updateNote(currNoteId, changes) {
     const currNote = gNotes.find(note => note.id === currNoteId)
     console.log('currNote', currNote)
     currNote.style.bgc = (changes.bgc) ? changes.bgc : currNote.style.bgc
+    currNote.info.url = (changes.url) ? changes.url : currNote.info.url
     switch (currNote.type) {
         case 'NoteText':
             if (!changes.txt) break
