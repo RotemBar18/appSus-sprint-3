@@ -18,7 +18,7 @@ export class KeepApp extends React.Component {
 
     loadNotes() {
         noteService.query(this.state.searchBy).then((notes) => {
-            this.setState({ notes },console.log(notes))
+            this.setState({ notes }, console.log(notes))
         })
     }
 
@@ -26,21 +26,6 @@ export class KeepApp extends React.Component {
         const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value
         this.setState({ newNoteContent: value })
     }
-
-
-    DynamicCmp = (props) => {
-        switch (currView) {
-            case 'Hello':
-                return <Hello {...props} />
-            case 'GoodBye':
-                return <GoodBye {...props} />
-            case 'WelcomeBack':
-                return <WelcomeBack {...props} />
-            default:
-                return //...some default error view
-        }
-    }
-
 
     onAddNote = () => {
         noteService.createNote(this.state.newNoteType, this.state.newNoteContent)
@@ -60,7 +45,6 @@ export class KeepApp extends React.Component {
                 this.setState({ notes })
             })
     }
-
 
 
     onSetSearch = (searchBy) => {
@@ -84,7 +68,7 @@ export class KeepApp extends React.Component {
     }
 
     OnCopyNote = (note) => {
-        noteService.copyNote(note).then(()=> this.loadNotes())
+        noteService.copyNote(note).then(() => this.loadNotes())
     }
 
 

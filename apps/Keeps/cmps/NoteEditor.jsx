@@ -10,6 +10,7 @@ export class NoteEditor extends React.Component {
         inputs: {
             bgc: '',
             url: '',
+            src: '',
             title: '',
             txt: '',
             label: '',
