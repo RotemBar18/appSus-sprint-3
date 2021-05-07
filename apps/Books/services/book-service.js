@@ -1,4 +1,4 @@
-import { utilService } from './util-service.js'
+import { utilService } from '../../../services/util-service.js'
 import { storageService } from './storage-service.js'
 
 export const bookService = {

@@ -4,7 +4,11 @@ import { storageService } from '../../../services/storage-service.js'
 export const noteService = {
     query,
     createNote,
-    deleteNote
+    deleteNote,
+    updateNote,
+    pinNote,
+    copyNote,
+    toggleTodo
 }
 
 const KEY = 'notes';
@@ -13,7 +17,20 @@ _createNotes();
 
 
 
-function query() {
+function query(searchBy) {
+    if (searchBy) {
+        const filteredNotes = gNotes.filter(note => {
+            switch (note.type) {
+                case 'NoteText':
+                    return note.info.txt.includes(searchBy)
+                case 'NoteImg':
+                    return note.info.title.includes(searchBy)
+                case 'NoteTodos':
+                    return note.info.label.includes(searchBy)
+            }
+        })
+        return Promise.resolve(filteredNotes)
+    }
     return Promise.resolve(gNotes)
 }
 
@@ -26,65 +43,66 @@ function deleteNote(noteId) {
     return Promise.resolve(gNotes)
 }
 
-// function removeReview(book, reviewId) {
-//     console.log('ReviewId from service', reviewId)
-//     _getReviewIdxById(reviewId, book)
-//         .then((reviewIdx) => {
-//             console.log('reviewIdx', reviewIdx)
-//             book.reviews.splice(reviewIdx, 1)
-//         })
+function toggleTodo(todo) {
+    todo.doneAt = (todo.doneAt) ? null : Date.now
+    return Promise.resolve()
+}
 
-//     return Promise.resolve(book)
-// }
+function updateNote(currNoteId, changes) {
+    const currNote = gNotes.find(note => note.id === currNoteId)
+    console.log('currNote', currNote)
+    currNote.style.bgc = (changes.bgc) ? changes.bgc : currNote.style.bgc
+    switch (currNote.type) {
+        case 'NoteText':
+            if (!changes.txt) break
+            currNote.info.txt = changes.txt
+            break
+        case 'NoteImg':
+            if (!changes.title) break
+            currNote.info.title = changes.title
+            if (changes.url)
+                currNote.info.url = changes.url
+            break
+        case 'NoteTodos':
+            if (changes.label) currNote.info.label = changes.label
+            if (!changes.todoTxt) break
+            currNote.info.todos = changes.todoTxt
+            break
+    }
 
-// function _getReviewIdxById(reviewId, book) {
-//     var reviewIdx = book.reviews.findIndex((review) => {
-//         return reviewId === review.id
-//     })
-//     return Promise.resolve(reviewIdx)
-// }
+    // var noteIdx = gNotes.findIndex((note) => {
+    //     return note.id === currNote.id;
+    // })
+    // gNotes[noteIdx] = 
+    // console.log('gNotes', gNotes)
+    // gNotes.splice(noteIdx, 1, currNote)
 
-// function getBookById(bookId) {
-//     var book = gBooks.find((book) => {
-//         return bookId === book.id
-//     })
-//     return Promise.resolve(book)
-// }
-
-// function updateBook(bookId, newSpeed) {
-//     var book = gBooks.find(function (book) {
-//         return book.id === bookId;
-//     })
-//     book.speed = newSpeed;
-//     _saveBooksToStorage();
-//     return Promise.resolve()
-// }
-
-// function saveReview(book, review) {
-//     console.log('Review', review)
-//     if (!book.reviews) book.reviews = []
-//     review['id'] = utilService.makeId()
-//     book.reviews.push(review)
-//     console.log('book', book)
-//     _saveBooksToStorage();
-
-//     return Promise.resolve(book)
-// }
-
-// function searchBooks(searchBy) {
-//     gSearchedBooks = BooksApiService.getBooks(searchBy)
-//         .then(books => {
-//             return books.items
-//         })
+    _saveNotesToStorage();
+    return Promise.resolve(gNotes)
+}
 
 
-//     return Promise.resolve(gSearchedBooks)
-// }
+function pinNote(note) {
+    const noteId = note.id
+    var noteIdx = gNotes.findIndex((note) => {
+        return note.id === noteId;
+    })
+    gNotes.splice(noteIdx, 1)
+    gNotes.unshift(note)
+    _saveNotesToStorage();
+    return Promise.resolve(gNotes)
+}
 
+function copyNote(note) {
+    let newNote = { ...note }
+    newNote.id = utilService.makeId()
+    gNotes = [...gNotes, newNote];
+    _saveNotesToStorage();
+    return Promise.resolve(gNotes)
+
+}
 
 function createNote(noteType, noteContent) {
-    console.log('noteType', noteType)
-    console.log('noteContent', noteContent)
     let info;
     let todos = noteContent.split(',')
     todos = todos.map(todo => {
@@ -93,7 +111,6 @@ function createNote(noteType, noteContent) {
             doneAt: null
         }
     })
-    console.log('todos', todos)
     switch (noteType) {
         case 'NoteText':
             info = { txt: noteContent };
@@ -119,9 +136,11 @@ function createNote(noteType, noteContent) {
         type: noteType,
         isPinned: false,
         info,
+        style: {
+            bgc: "#ffffff"
+        }
+
     }
-    console.log('note', note.info.todos)
-    console.log('note', note)
     gNotes.push(note)
     _saveNotesToStorage();
     return Promise.resolve(gNotes)
@@ -139,6 +158,9 @@ function _createNotes() {
                 isPinned: true,
                 info: {
                     txt: "Fullstack!"
+                },
+                style: {
+                    bgc: "#D75E45"
                 }
             },
             {
@@ -149,7 +171,7 @@ function _createNotes() {
                     title: "Me playing Mi"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    bgc: "#547FF8"
                 }
             },
             {
@@ -161,6 +183,9 @@ function _createNotes() {
                         { txt: "Do that", doneAt: null },
                         { txt: "Do this", doneAt: 187111111 }
                     ]
+                },
+                style: {
+                    bgc: "#3CF130"
                 }
             }
         ];

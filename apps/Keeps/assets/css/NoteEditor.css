@@ -1,4 +1,254 @@
+.editor-screen {
+    z-index: 0;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(54, 54, 54, 0.774);
+}
+
 .note-editor {
-    height: 100%;
-    width: 70;
+    position: relative;
+    margin-top: 10px;
+    display: grid;
+    background-color: white;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    justify-items: center;
+}
+
+
+
+.note-editor .preview-img {
+    margin-top: 5px;
+    width: 80%;
+    border: 1 px solid black;
+}
+
+.close-editor-btn {
+    grid-column: 6/7;
+    grid-row: 1/2;
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    color: black;
+    border-radius: 0 10px 10px 3px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    margin-left: 20px;
+}
+
+.close-editor-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+.pin-btn {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    border-radius: 0 0 0 3px;
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.pin-btn:hover {
+    background-color: inherit;
+    opacity: 0.5;
+    color: white;
+}
+
+.pin-btn:active {
+    transition: none;
+    background-color: inherit;
+    opacity: 1;
+    color: white;
+}
+
+.remove-btn {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    border-radius: 0 0 0 3px;
+    max-width: 1.5rem;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: inherit;
+    opacity: 0.5;
+    color: white;
+}
+
+.remove-btn:active {
+    transition: none;
+    background-color: inherit;
+    opacity: 1;
+    color: white;
+}
+
+.copy-btn {
+    grid-column:5/6;
+    grid-row: 1/2;
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    border-radius: 0 0 0 3px;
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background-color: inherit;
+    opacity: 0.5;
+    color: white;
+}
+
+.copy-btn:active {
+    transition: none;
+    background-color: inherit;
+    opacity: 1;
+    color: white;
+}
+
+.bgc-palette {
+    z-index: 1;
+    display: grid;
+    position: absolute;
+    background-color: rgb(63, 63, 63);
+    bottom: -63px;
+    right: 0;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.bgc-palette-btn {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    border-radius: 0 0 0 3px;
+    width: 1.9rem;
+    cursor: pointer;
+}
+
+.bgc-palette-btn:hover {
+    background-color: inherit;
+    opacity: 0.5;
+    color: white;
+}
+
+.bgc-palette-btn:active {
+    transition: none;
+    background-color: inherit;
+    opacity: 1;
+    color: white;
+}
+
+.bgc {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.bgc:hover {
+    opacity: 1;
+}
+
+.bgc.red-btn {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    background-color: #D75E45;
+    border: 1px solid rgb(54, 54, 54)
+}
+
+.bgc.purple-btn {
+    grid-column: 4/5;
+    grid-row: 3/4;
+    background-color: #DE30F1;
+    border: 1px solid rgb(54, 54, 54)
+}
+
+.bgc.green-btn {
+    grid-column: 5/6;
+    grid-row: 3/4;
+    background-color: #3CF130;
+    border: 1px solid rgb(54, 54, 54)
+}
+
+.bgc.yellow-btn {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    background-color: #eaff00;
+    border: 1px solid rgb(54, 54, 54)
+}
+
+.bgc.white-btn {
+    grid-column: 4/5;
+    grid-row: 2/3;
+    background-color: #ffffff;
+    border: 1px solid rgb(54, 54, 54)
+}
+
+.bgc.blue-btn {
+    grid-column: 5/6;
+    grid-row: 2/3;
+    background-color: #547FF8;
+    border: 1px solid rgb(54, 54, 54)
+}
+
+.edit-txt-btn{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    width: 20px;
+    cursor: pointer;
+}
+
+
+.dynamic-edit-container{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    top: 1.58rem;
+    left: 0;
+    border: 1px solid gray;
+}
+
+.title-input {
+    width: 80px;
+    outline: none;
+    text-decoration: underline;
+    border: none
+}
+
+.label-input {
+    width: 80px;
+    outline: none;
+    text-decoration: underline;
+    border: none
+}
+
+.txt-input {
+    width: 80px;
+    margin: 0;
+    outline: none;
+    text-decoration: underline;
+    border: none
+}
+
+.url-input {
+    outline: none;
+    text-decoration: underline;
+    border: none
 }

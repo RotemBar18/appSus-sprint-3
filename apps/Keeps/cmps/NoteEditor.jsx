@@ -1,18 +1,73 @@
-import { utilService } from '../../../services/util-service.js'
+import { noteService } from '../services/note-service.js'
+import { BgcPalette } from './BgcPalette.jsx'
+import { DynamicEditCmp } from './DynamicEditCmp.jsx'
 
-export function NoteEditor({ closeEditor, note }) {
-    return (
-        <div className="note-editor" onClick={closeEditor}>
-            {console.log(note)}
-            {note.type === "NoteImg" && <img src={`${note.info.url}`} alt="" />}
-            {note.type === "NoteImg" && <h1>{`${note.info.title}`}</h1>}
-            {note.type === "NoteText" && <h1>{`${note.info.txt}`}</h1>}
-            {note.type === "NoteTodos" && <h1>{`${note.info.label}`}</h1>}
-            {note.type === "NoteTodos" && <ul>
-                {note.info.todos.map(todo => {
-                    return <li key={utilService.makeId()}>{todo.txt}</li>
-                })}
-            </ul>}
-        </div>
-    )
+export class NoteEditor extends React.Component {
+
+    state = {
+        isDynamicEditCmpOpen: false,
+        isPaletteOpen: false,
+        inputs: {
+            bgc: '',
+            url: '',
+            title: '',
+            txt: '',
+            label: '',
+            todoTxt: ''
+        },
+    }
+
+    componentDidMount() {
+    }
+
+    handleChange = (ev) => {
+        console.log(this.props.note.id);
+        const field = ev.target.name
+        const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value
+        this.setState({ inputs: { ...this.state.inputs, [field]: value } }, () => {
+            this.onSaveChanges()
+        })
+
+    }
+
+    setColor = (color) => {
+        this.setState({ inputs: { ...this.state.inputs, bgc: color } }, () => {
+            this.onSaveChanges()
+        })
+    }
+
+    onSaveChanges = () => {
+        noteService.updateNote(this.props.note.id, this.state.inputs)
+            .then(this.props.renderEdited)
+    }
+
+    render() {
+        const note = this.props.note
+        const { isPaletteOpen, isDynamicEditCmpOpen} = this.state
+
+        return (
+            <React.Fragment>
+                <div className={`note-editor`}  >
+                    {isDynamicEditCmpOpen &&
+                        <DynamicEditCmp note={note} handleChange={this.handleChange} />
+                    }
+                    {isPaletteOpen &&
+                        <BgcPalette setColor={this.setColor} />
+                    }
+
+                    <img className='edit-txt-btn' onClick={() => { this.setState({ isDynamicEditCmpOpen: !isDynamicEditCmpOpen }) }} src="../../../assets/img/edit.png" alt="" />
+                    <img className='bgc-palette-btn' onClick={() => { this.setState({ isPaletteOpen: !isPaletteOpen }) }} src="../../../assets/img/clrPalette.png" alt="" />
+                    <button className='close-editor-btn' onClick={this.props.closeEditor}>x</button>
+                    <img className='copy-btn' onClick={() => { this.props.copyNote(note) }} src="../../../assets/img/copy.png" alt="" />
+                    <img className='remove-btn' onClick={() => { this.props.onDeleteNote(note.id) }} src="../../../assets/img/trash.png" alt="" />
+                    <img className='pin-btn' onClick={() => { this.props.pinNote(note) }} src="../../../assets/img/pin.png" alt="" />
+
+
+
+
+                </div>
+            </React.Fragment>
+        )
+
+    }
 }

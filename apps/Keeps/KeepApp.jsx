@@ -2,14 +2,14 @@ import { NotesList } from './cmps/NotesList.jsx'
 import { AddNote } from './cmps/AddNote.jsx'
 import { noteService } from './services/note-service.js'
 import { NoteEditor } from './cmps/NoteEditor.jsx'
+import { NoteSearch } from './cmps/NoteSearch.jsx'
 
 export class KeepApp extends React.Component {
     state = {
         newNoteContent: '',
         newNoteType: 'NoteText',
         notes: null,
-        selectedNote: null,
-        isEditorOpen: false
+        searchBy: null
     }
 
     componentDidMount() {
@@ -17,16 +17,16 @@ export class KeepApp extends React.Component {
     }
 
     loadNotes() {
-        noteService.query()
-            .then((notes) => {
-                this.setState({ notes })
-            })
+        noteService.query(this.state.searchBy).then((notes) => {
+            this.setState({ notes },console.log(notes))
+        })
     }
 
     handleChange = (ev) => {
         const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value
         this.setState({ newNoteContent: value })
     }
+
 
     DynamicCmp = (props) => {
         switch (currView) {
@@ -61,31 +61,53 @@ export class KeepApp extends React.Component {
             })
     }
 
-    openEditor = (note) => {
-        console.log(note);
-        this.setState({ selectedNote: note }, () => {
-            this.setState({ isEditorOpen: true })
-        })
+
+
+    onSetSearch = (searchBy) => {
+        this.setState({ searchBy }, this.loadNotes)
+    }
+
+    onToggleTodo = (todo) => {
+        console.log(todo);
+        noteService.toggleTodo(todo).then(
+            this.loadNotes()
+        )
+    }
+
+    renderEdited = () => {
+        this.loadNotes()
+    }
+
+    onPinNote = (note) => {
+        noteService.pinNote(note)
+        this.loadNotes()
+    }
+
+    OnCopyNote = (note) => {
+        noteService.copyNote(note).then(()=> this.loadNotes())
     }
 
 
-    closeEditor = () => {
-        this.setState({ isEditorOpen: false })
-        this.setState({ selectedNote: null })
-    }
 
 
     render() {
-        const { notes, selectedNote, isEditorOpen } = this.state
+        const { notes } = this.state
         if (!notes) return <div>Loading...</div>
         return (
             <section className="note-app">
                 <AddNote newNoteType={this.state.newNoteType} handleChange={this.handleChange} onAddNote={this.onAddNote} onSubmit={this.onSubmit} />
+                <NoteSearch onSetSearch={this.onSetSearch} />
                 <h2>My Notes</h2>
-                {!selectedNote && <React.Fragment>
-                    <NotesList onDeleteNote={this.onDeleteNote} openEditor={this.openEditor} notes={notes} setSelectedNote={this.setSelectedNote} />
-                </React.Fragment>}
-                {isEditorOpen && <NoteEditor note={this.state.selectedNote} closeEditor={this.closeEditor} />}
+                <NotesList copyNote={this.OnCopyNote}
+                    closeEditor={this.closeEditor}
+                    renderEdited={this.renderEdited}
+                    handleColorChange={this.handleColorChange}
+                    pinNote={this.onPinNote}
+                    onToggleTodo={this.onToggleTodo}
+                    onDeleteNote={this.onDeleteNote}
+                    openEditor={this.openEditor}
+                    notes={notes}
+                    setSelectedNote={this.setSelectedNote} />
             </section>
         )
     }

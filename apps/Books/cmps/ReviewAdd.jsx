@@ -1,5 +1,5 @@
 import { bookService } from '../services/book-service.js'
-import { utilService } from '../services/util-service.js'
+import { utilService } from '../../../services/util-service.js'
 import { RatingStars } from './RatingStars.jsx'
 export class ReviewAdd extends React.Component {
     state = {
@@ -33,7 +33,7 @@ export class ReviewAdd extends React.Component {
         const bookId = this.props.match.params.bookId;
         bookService.addReview(bookId, this.state.review)
             .then(this.closeModal)
-            .catch(err => console.log(err, 'error on submit'))
+            .catch(err => (err, 'error on submit'))
     }
 
     closeModal = () => {

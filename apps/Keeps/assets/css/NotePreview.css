@@ -4,12 +4,14 @@
 
 .note-app {
     display: flex;
+    position: relative;
     flex-direction: column;
 }
 
 .note-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .note {
@@ -19,30 +21,30 @@
     width: 200px;
     margin: 10px;
     border: 1px solid black;
+    transition: 0.5s;
 }
 
-.note p{
-text-align: center;
+.note p {
+    text-align: center;
 }
 
 .note-container {
     height: fit-content;
 }
 
-.remove-btn {
-    position: absolute;
-    right: 0;
-    top: -1;
-    background-color: rgba(165, 165, 165, 0);
-    border: none;
-    color: black;
-    border-radius: 0 0 0 3px;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 1.3rem;
+
+.todo {
+    cursor:pointer ;
 }
 
-.remove-btn:hover {
-    background-color: red;
-    color: white;
+.todo.done {
+    text-decoration: line-through;
+}
+
+.edit-btn{
+    width: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
 }
