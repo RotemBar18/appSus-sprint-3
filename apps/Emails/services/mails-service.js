@@ -4,12 +4,13 @@ import { utilService } from '../../../services/util-service.js'
 export const mailsService = {
     query,
     toggleMailShow,
+    addMail,
 }
 
 const KEY = 'mails';
 var gMails = [{
         id: utilService.makeId(),
-        title: 'Only 2 spots left for HilaTeam party today — Save your spot!',
+        title: 'Only 2 spots left for HilaTeam party today - Save your spot!',
         subtitle: "",
         body: 'is only 2 days away! The list is filling up fast so register now to save your spot! You’ll come out of this fun night with: Hila, See you there!',
         sendTo: "me",
@@ -18,10 +19,14 @@ var gMails = [{
         isRead: true,
         isOpen: false,
         mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: true,
+        isSendMail: true,
+        isInbox: true,
+        isStarred: true,
     },
     {
         id: utilService.makeId(),
-        title: 'Only 2 spots left for HilaTeam party today — Save your spot!',
+        title: 'Only 2 spots left for HilaTeam party today - Save your spot!',
         subtitle: "",
         body: 'Hi John, Thank you for shopping at [my business]. Is there anything we can do to improve your experience with us? [Click here to take a 2-minute survey (hyperlink to survey)] Your feedback helps us to help you! We so appreciate it.',
         sendTo: "me",
@@ -30,18 +35,26 @@ var gMails = [{
         isRead: false,
         isOpen: false,
         mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: false,
+        isSendMail: false,
+        isInbox: true,
+        isStarred: false,
     },
     {
         id: utilService.makeId(),
-        title: 'You’re invited! to HilaTeam party at Hilas house — today',
+        title: 'You’re invited! to HilaTeam party at Hilas house - today',
         subtitle: "",
-        body: 'It’s time to start celebrate. This event is 100% free, but spots are limited — so sign up now! Hope to see you soon!',
+        body: 'It’s time to start celebrate. This event is 100% free, but spots are limited - so sign up now! Hope to see you soon!',
         sendTo: "me",
         sendfrom: "Rotem",
         sentAt: "09/05/20",
         isRead: false,
         isOpen: false,
         mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: true,
+        isSendMail: true,
+        isInbox: true,
+        isStarred: true,
     },
     {
         id: utilService.makeId(),
@@ -54,30 +67,42 @@ var gMails = [{
         isRead: false,
         isOpen: false,
         mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: false,
+        isSendMail: false,
+        isInbox: true,
+        isStarred: false,
     },
     {
         id: utilService.makeId(),
         title: 'Your automatic payment is approaching',
         subtitle: "",
-        body: 'Hi John,Over 40 former Weeknight Chef members took advantage of our special rejoin offer last week and we hope you’ll be next! Sign back up today and get your first month plus three dessert kits FREE! Don’t delay — the offer is only valid for the first 100 returning members or until March 31 — whichever comes first. Click below to reunite with your inner chef today! May your dinnertime dread be gone, The Weeknight Chef Team Weeknight Chef 555-345-678  info@weeknightchef.com Weeknightchef com',
+        body: 'Hi John,Over 40 former Weeknight Chef members took advantage of our special rejoin offer last week and we hope you’ll be next! Sign back up today and get your first month plus three dessert kits FREE! Don’t delay - the offer is only valid for the first 100 returning members or until March 31 - whichever comes first. Click below to reunite with your inner chef today! May your dinnertime dread be gone, The Weeknight Chef Team Weeknight Chef 555-345-678  info@weeknightchef.com Weeknightchef com',
         sendTo: "me",
         sendfrom: "Rotem",
         sentAt: "05/05/20",
         isRead: true,
         isOpen: false,
         mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: false,
+        isSendMail: true,
+        isInbox: true,
+        isStarred: false,
     },
     {
         id: utilService.makeId(),
         title: 'Headache? Rejoin HilaTeamRole and SAVE BIG!',
         subtitle: "",
-        body: 'Hi John Over 40 former Weeknight Chef members took advantage of our special rejoin offer last week and we hope you’ll be next! Sign back up today and get your first month plus three dessert kits FREE! Don’t delay — the offer is only valid for the first 100 returning members or until March 31 — whichever comes first. Click below to reunite with your inner chef today! May your dinnertime dread be gone, The Weeknight Chef Team Weeknight Chef 555-345-678  info@weeknightchef.com Weeknightchef com',
+        body: 'Hi John Over 40 former Weeknight Chef members took advantage of our special rejoin offer last week and we hope you’ll be next! Sign back up today and get your first month plus three dessert kits FREE! Don’t delay - the offer is only valid for the first 100 returning members or until March 31 - whichever comes first. Click below to reunite with your inner chef today! May your dinnertime dread be gone, The Weeknight Chef Team Weeknight Chef 555-345-678  info@weeknightchef.com Weeknightchef com',
         sendTo: "me",
         sendfrom: "Hila",
         sentAt: "05/05/20",
         isRead: false,
         isOpen: false,
         mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: false,
+        isSendMail: false,
+        isInbox: true,
+        isStarred: false,
     },
     {
         id: utilService.makeId(),
@@ -90,25 +115,51 @@ var gMails = [{
         isRead: true,
         isOpen: false,
         mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: false,
+        isSendMail: false,
+        isInbox: true,
+        isStarred: false,
     },
 ]
 
-function query(filterBy) {
+function query(filterBy, filterByProperty) {
+    var filteredMails = gMails;
+    filteredMails = filteredMails.filter(mail => {
+        return mail[filterByProperty]
+    })
     if (filterBy) {
         var { text } = filterBy
-        // maxPrice = maxPrice ? maxPrice : Infinity
-        // minPrice = minPrice ? minPrice : 0
-        const filteredMails = gMails.filter(mail => {
+        filteredMails = filteredMails.filter(mail => {
             return (mail.title.toLowerCase().includes(text.toLowerCase()) || mail.body.toLowerCase().includes(text.toLowerCase()))
-                //  && mail.listPrice.amount > minPrice && mail.listPrice.amount < maxPrice
         })
         return Promise.resolve(filteredMails)
     }
-    return Promise.resolve(gMails)
+    return Promise.resolve(filteredMails)
 }
 
 function toggleMailShow(mailId) {
     var idx = gMails.findIndex(mail => mail.id === mailId)
     gMails[idx]['isOpen'] = !gMails[idx]['isOpen']
+    return Promise.resolve(gMails)
+}
+
+function addMail({ body, sendTo, title }, isDraft, isSendMail) {
+    if (sendTo.length) sendTo = sendTo.join('>  <')
+    gMails.unshift({
+        id: utilService.makeId(),
+        title,
+        subtitle: "",
+        body,
+        sendTo,
+        sendfrom: "Me",
+        sentAt: "09/05/20",
+        isRead: true,
+        isOpen: false,
+        mailAddress: `<${sendTo}>`,
+        isDraft,
+        isSendMail,
+        isInbox: false,
+        isStarred: false,
+    }, )
     return Promise.resolve(gMails)
 }

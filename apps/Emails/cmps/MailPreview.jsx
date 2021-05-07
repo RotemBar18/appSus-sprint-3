@@ -8,14 +8,19 @@ export function MailPreview({ mail, selectedMail, toggleMailShow }) {
         if (!mail.isOpen) return 'row-disply-none'
     }
 
-    function setFirstLetterSymbol(name){
-        return name.charAt(0)
+    function setFirstLetterSymbol(name) {
+        return `apps/Emails/assets/img/letters/${name.charAt(0).toUpperCase()}.png`
+        // return "../assets/img/letters/A.png"
     }
 
     return (
         <React.Fragment>
             <tr className={`mail-preview ` + checkIfRead(mail)} onClick={() => toggleMailShow(mail)}>
-                <td className="mail-letter-symbol">{setFirstLetterSymbol(mail.sendfrom)}</td>
+                <td className="mail-letter-symbol">
+                    <div className="img-mail-letter-container flex">
+                    <img className="img-mail-letter-symbol" src={setFirstLetterSymbol(mail.sendfrom)} alt="" ></img>
+                    </div>
+                </td>
                 <td className="mail-send-form">{mail.sendfrom}</td>
                 <td className="mail-title">{mail.title}</td>
                 <td className="mail-send-at" colSpan="2">{mail.sentAt}</td>

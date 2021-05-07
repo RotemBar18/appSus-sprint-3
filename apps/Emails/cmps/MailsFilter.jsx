@@ -36,7 +36,7 @@ export class MailsFilter extends React.Component {
                 <label htmlFor="maxPrice"></label>
                 <input type="number" id="maxPrice" name="maxPrice" value={maxPrice} placeholder="Search maxSpeed..." onChange={this.handleChange} /> */}
 
-                <label for="filter-by"></label>
+                <label htmlFor="filter-by"></label>
                 <select className="filter-by" name="filter-by" id="filter-by">
                     <option value="text">text</option>
                     <option value="date">date</option>

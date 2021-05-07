@@ -3,7 +3,7 @@ const { Route, Switch } = ReactRouterDOM
 
 import { AppHeader } from './cmps/AppHeader.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
-import { AppEmail } from './apps/Emails/pages/MailsApp.jsx'
+import { AppEmail } from './apps/Emails/MailsApp.jsx'
 import { KeepApp } from './apps/Keeps/KeepApp.jsx'
 import { BookApp } from './apps/Books/BookApp.jsx'
 

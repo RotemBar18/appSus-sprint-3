@@ -1,0 +1,67 @@
+.mail-input {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.mail-input .wrapper {
+    font-size: 1rem;
+    line-height: 1;
+    background-color: white;
+    width: 400px;
+    padding: 2rem;
+    box-shadow: 0 1.5rem 1rem -1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.3rem;
+}
+
+.mail-input .input {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    font: inherit;
+    border-radius: 0.2rem;
+    appearance: none;
+}
+
+.mail-input .input:focus {
+    outline: none;
+    border: none;
+}
+
+.mail-input.input .has-error {
+    border-color: tomato;
+}
+
+.mail-input .error {
+    margin: 0;
+    font-size: 90%;
+    color: tomato;
+}
+
+.mail-input .tag-item {
+    border: 1px solid rgb(209, 208, 208);
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 10px;
+    height: 30px;
+    padding: 0 1px 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0.3rem 0.3rem 0;
+}
+
+.mail-input .tag-item>.button {
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}

@@ -5,7 +5,11 @@
 table {
     border: 1px solid rgb(194, 188, 188);
     border-collapse: collapse;
-    width: 70%;
+    width: 80%;
+}
+
+.mails-list {
+    margin-left: 145px;
 }
 
 tbody {
@@ -48,21 +52,12 @@ td {
     color: rgb(141, 139, 139);
 }
 
+.img-mail-letter-symbol {
+    width: 25px;
+}
 
-/* <tr className={`mail-preview ` + checkIfRead(mail)} onClick={() => toggleMailShow(mail)}>
-                <td className="mail-letter-symbol">N</td>
-                <td className="mail-send-form">{mail.sendfrom}</td>
-                <td className="mail-title">{mail.title}</td>
-                <td className="mail-send-at">{mail.sentAt}</td>
-            </tr>
-            <tr className={`mail-header ` + checkIfMailOpen(mail)}>
-                <td className="mail-title" colSpan="3">{mail.title}</td>
-                <td className="btn-close" onClick={() => toggleMailShow(mail)}>X</td>
-            </tr>
-            <tr className={`mail-body ` + checkIfMailOpen(mail)}>
-                <td className="mail-send-from" >{mail.sendfrom}</td>
-                <td className="mail-address-from">{mail.mailAddress}</td>
-            </tr>
-            <tr className={`mail-body ` + checkIfMailOpen(mail)}>
-                <td className="mail-body" colSpan="4">{mail.body}</td>
-            </tr> */
+.img-mail-letter-container {
+    padding: 5px;
+    border: 1px solid rgb(146, 144, 144);
+    border-radius: 50%;
+}
