@@ -140,8 +140,7 @@ function query(filterBy, filterByProperty) {
 function toggleMailShow(mailId) {
     var idx = gMails.findIndex(mail => mail.id === mailId)
     gMails[idx]['isOpen'] = !gMails[idx]['isOpen']
-    return Promise.resolve(gMails) <<
-        << << < HEAD
+    return Promise.resolve(gMails)
 }
 
 function addMail({ body, sendTo, title }, isDraft, isSendMail) {
@@ -162,7 +161,5 @@ function addMail({ body, sendTo, title }, isDraft, isSendMail) {
         isInbox: false,
         isStarred: false,
     }, )
-    return Promise.resolve(gMails) ===
-        === = >>>
-        >>> > 6 ffe412c4685f4125709aa25cf3fef76af53b42b
+    return Promise.resolve(gMails)
 }
