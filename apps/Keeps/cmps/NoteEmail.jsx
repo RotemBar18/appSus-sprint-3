@@ -10,7 +10,7 @@ export function NoteEmail({ note, openEditor }) {
             <span>From: {sendFrom}</span>
             <span>To: {sendTo}</span>
             </div>
-            <img className='edit-btn' onClick={() => { openEditor(note) }} src="../../../assets/img/edit.png" alt="" />
+            <img className='edit-btn' onClick={() => { openEditor(note) }} src="./assets/img/edit.png" alt="" />
 
         </div>)
 }
