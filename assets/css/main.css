@@ -1,6 +1,7 @@
 @import "../../apps/Emails/assets/css/mail-app.css";
 @import "../../apps/Keeps/assets/css/keep-app.css";
 @import "./app-header.css";
+@import "./Home.css";
 * {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;

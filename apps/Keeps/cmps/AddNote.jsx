@@ -4,14 +4,14 @@ export function AddNote({ onAddNote, newNoteType, onSubmit, handleChange }) {
     return (
         <section className='new-note-input'>
             <div className='note-types'>
-                <img className='text-btn' onClick={() => { onSubmit('NoteText') }} src="../../../assets/img/text.png" alt="" />
-                <img className='img-btn' onClick={() => { onSubmit('NoteImg') }} src="../../../assets/img/img.png" alt="" />
-                <img className='list-btn' onClick={() => { onSubmit('NoteTodos') }} src="../../../assets/img/list.png" alt="" />
-                <img className='video-btn' onClick={() => { onSubmit('NoteVideo') }} src="../../../assets/img/video.png" alt="" />
+                <img className='text-btn' onClick={() => { onSubmit('NoteText') }} src="./assets/img/text.png" alt="" />
+                <img className='img-btn' onClick={() => { onSubmit('NoteImg') }} src="./assets/img/img.png" alt="" />
+                <img className='list-btn' onClick={() => { onSubmit('NoteTodos') }} src="./assets/img/list.png" alt="" />
+                <img className='video-btn' onClick={() => { onSubmit('NoteVideo') }} src="./assets/img/video.png" alt="" />
             </div>
             <div className='add-note'>
             {DynamicCmp(newNoteType, handleChange)}
-                <img className='add-btn' onClick={() => { onAddNote() }} src="../../../assets/img/add.png" alt="" />
+                <img className='add-btn' onClick={() => { onAddNote() }} src="./assets/img/add.png" alt="" />
             </div>
 
         </section>

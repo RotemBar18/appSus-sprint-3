@@ -10,7 +10,7 @@ export function NoteTodo({ note, openEditor, onToggleTodo }) {
                     return <li className={`todo ${(todo.doneAt ? 'done' : '')}`} key={utilService.makeId()} onClick={() => onToggleTodo(todo)}>{todo.txt}</li>
                 })}
             </ul>
-            <img className='edit-btn' onClick={() => { openEditor(note) }} src="../../../assets/img/edit.png" alt="" />
+            <img className='edit-btn' onClick={() => { openEditor(note) }} src="./assets/img/edit.png" alt="" />
 
         </div>)
 }
