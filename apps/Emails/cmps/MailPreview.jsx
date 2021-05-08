@@ -33,7 +33,6 @@ export class MailPreview extends React.Component {
 
     render() {
         const { mail, } = this.props;
-        console.log(this.state.isMailRead)
         return (
             <React.Fragment>
                 <tr className={`mail-preview ` + this.checkIfRead(mail)} onClick={(ev) => this.props.toggleMailShow(mail, ev)}>
