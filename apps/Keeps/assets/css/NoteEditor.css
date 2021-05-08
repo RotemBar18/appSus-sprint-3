@@ -141,6 +141,9 @@
     border: 1px solid gray;
     border-radius: 10px;
 }
+.bgc-palette:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
 
 .bgc-palette-btn {
     background-color: rgba(165, 165, 165, 0);
