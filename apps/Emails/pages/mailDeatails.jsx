@@ -1,3 +1,4 @@
+import { noteService } from '../../Keeps/services/note-service.js';
 import { mailsService } from '../services/mails-service.js'
 export class mailDeatails extends React.Component {
 
@@ -20,6 +21,10 @@ export class mailDeatails extends React.Component {
         this.props.history.push('/misterEmail')
     }
 
+    onCreateEmailNote = (mail) => {
+        noteService.createEmailNote(mail)
+    }
+
     render() {
         const { mail } = this.state
         if (!mail) return <div>Loading...</div>
@@ -29,7 +34,7 @@ export class mailDeatails extends React.Component {
                     <tr className='mail-header '>
                         <td className="mail-title" colSpan="1">{mail.title}</td>
                         <td className="btn-close" ><i className="fas fa-compress" onClick={this.goBack}></i></td>
-                        <td className="btn-close" ><i className="far fa-sticky-note" onClick={this.goBack}></i></td>
+                        <td className="btn-close" ><i className="far fa-sticky-note" onClick={() => { this.onCreateEmailNote(mail) }}></i></td>
                     </tr>
                     <tr className='mail-body'>
                         <td className="mail-send-from" colSpan="1">{mail.sendfrom}</td>

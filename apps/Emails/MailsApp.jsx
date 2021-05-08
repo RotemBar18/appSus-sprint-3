@@ -3,6 +3,7 @@ import { MailsList } from './cmps/MailsList.jsx'
 import { MailsSideBar } from './cmps/MailsSideBar.jsx'
 // import { MailDeatails } from './MailDeatails.jsx'
 import { MailsFilter } from './cmps/MailsFilter.jsx'
+import { noteService } from '../Keeps/services/note-service.js'
 
 export class AppEmail extends React.Component {
     state = {
@@ -37,18 +38,19 @@ export class AppEmail extends React.Component {
         this.setState({ filterBy }, this.loadMails)
     }
 
-    showFilterByProperties = (filterByProperty)=>{
+    showFilterByProperties = (filterByProperty) => {
         this.setState({ filterByProperty }, this.loadMails)
     }
 
-    OnRemoveMail = (mail, ev) =>{
+    OnRemoveMail = (mail, ev) => {
         mailsService.removeMail(mail.id).then((mails) => {
             this.setState({ mails })
         })
     }
 
+
     render() {
-        const { mails, selectedMail} = this.state
+        const { mails, selectedMail } = this.state
         if (!mails) return <div>Loading...</div>
         return (
             <section className="mail-app">

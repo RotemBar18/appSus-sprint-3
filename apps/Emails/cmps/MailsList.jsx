@@ -1,5 +1,5 @@
 import { MailPreview } from './MailPreview.jsx'
-export function MailsList({ mails, selectedMail, toggleMailShow, OnRemoveMail}) {
+export function MailsList({ mails, selectedMail, toggleMailShow,OnRemoveMail}) {
     return (
         <div className="mails-list">
             <table className="list clean-list">

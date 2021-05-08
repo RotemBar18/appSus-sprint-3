@@ -110,6 +110,27 @@
     color: white;
 }
 
+.to-email-btn {
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    border-radius: 0 0 0 3px;
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.to-email-btn:hover {
+    background-color: inherit;
+    opacity: 0.5;
+    color: white;
+}
+
+.to-email-btn:active {
+    transition: none;
+    background-color: inherit;
+    opacity: 1;
+    color: white;
+}
+
 .bgc-palette {
     z-index: 1;
     display: grid;
@@ -216,6 +237,8 @@
     width: 20px;
     cursor: pointer;
 }
+
+
 
 
 .dynamic-edit-container{

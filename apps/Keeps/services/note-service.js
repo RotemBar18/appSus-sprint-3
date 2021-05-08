@@ -8,7 +8,8 @@ export const noteService = {
     updateNote,
     pinNote,
     copyNote,
-    toggleTodo
+    toggleTodo,
+    createEmailNote
 }
 
 const KEY = 'notes';
@@ -246,4 +247,10 @@ function _createNotes() {
 function _saveNotesToStorage() {
     storageService.saveToStorage(KEY, gNotes)
     return Promise.resolve()
+}
+
+
+function createEmailNote(email){
+    console.log('email', email)
+
 }

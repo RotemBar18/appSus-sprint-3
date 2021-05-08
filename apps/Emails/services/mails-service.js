@@ -7,6 +7,7 @@ export const mailsService = {
     addMail,
     removeMail,
     getMailDeatails,
+    sendNoteToMail
 }
 
 const KEY = 'mails';
@@ -175,4 +176,9 @@ function removeMail(mailId) {
 function getMailDeatails(mailId) {
     const mail = gMails.find(mail => mail.id === mailId)
     return Promise.resolve(mail)
+}
+
+function sendNoteToMail(note){
+    console.log('note', note)
+
 }

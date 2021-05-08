@@ -1,3 +1,4 @@
+import { mailsService } from '../../Emails/services/mails-service.js'
 import { noteService } from '../services/note-service.js'
 import { BgcPalette } from './BgcPalette.jsx'
 import { DynamicEditCmp } from './DynamicEditCmp.jsx'
@@ -42,9 +43,13 @@ export class NoteEditor extends React.Component {
             .then(this.props.renderEdited)
     }
 
+    onSendNoteToMail = (note) => {
+        mailsService.sendNoteToMail(note)
+    }
+
     render() {
         const note = this.props.note
-        const { isPaletteOpen, isDynamicEditCmpOpen} = this.state
+        const { isPaletteOpen, isDynamicEditCmpOpen } = this.state
 
         return (
             <React.Fragment>
@@ -61,6 +66,7 @@ export class NoteEditor extends React.Component {
                     <img className='remove-btn' onClick={() => { this.props.onDeleteNote(note.id) }} src="../../../assets/img/trash.png" alt="" />
                     <img className='bgc-palette-btn' onClick={() => { this.setState({ isPaletteOpen: !isPaletteOpen }) }} src="../../../assets/img/clrPalette.png" alt="" />
                     <img className='copy-btn' onClick={() => { this.props.copyNote(note) }} src="../../../assets/img/copy.png" alt="" />
+                    <img className='to-email-btn' onClick={() => { this.onSendNoteToMail(note) }} src="../../../assets/img/text.png" alt="" />
                     <button className='close-editor-btn' onClick={this.props.closeEditor}>x</button>
 
 

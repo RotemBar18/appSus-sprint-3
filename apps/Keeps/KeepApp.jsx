@@ -1,7 +1,7 @@
 import { NotesList } from './cmps/NotesList.jsx'
 import { AddNote } from './cmps/AddNote.jsx'
-import { noteService } from './services/note-service.js'
 import { NoteSearch } from './cmps/NoteSearch.jsx'
+import { noteService } from './services/note-service.js'
 
 export class KeepApp extends React.Component {
     state = {

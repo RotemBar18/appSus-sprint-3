@@ -1,6 +1,6 @@
-const { Link} = ReactRouterDOM
+const { Link } = ReactRouterDOM
 
-export function MailPreview({ mail, selectedMail, toggleMailShow , OnRemoveMail}) {
+export function MailPreview({ mail, selectedMail, toggleMailShow, OnRemoveMail  }) {
 
     function checkIfRead(mail) {
         if (!mail.isRead) return "un-read"
@@ -23,14 +23,14 @@ export function MailPreview({ mail, selectedMail, toggleMailShow , OnRemoveMail}
                 </td>
                 <td className="mail-send-form">{mail.sendfrom}</td>
                 <td className="mail-title">{mail.title}</td>
-                <td className="fas fa-trash fa-lg" onClick={(ev) => OnRemoveMail(mail,ev)}></td>
+                <td className="fas fa-trash fa-lg" onClick={(ev) => OnRemoveMail(mail, ev)}></td>
                 <td className="mail-send-at" >{mail.sentAt}</td>
             </tr>
             <tr className={`mail-header ` + checkIfMailOpen(mail)}>
                 <td className="mail-title" colSpan="3">{mail.title}</td>
                 <td className="btn-close" onClick={(ev) => toggleMailShow(mail, ev)}><i className="fas fa-times"></i></td>
                 <td className="mail-deatails" >
-                        <Link className="mail-deatails" to={`/misterEmail/${mail.id}`}><i className="fas fa-expand"></i></Link></td>
+                    <Link className="mail-deatails" to={`/misterEmail/${mail.id}`}><i className="fas fa-expand"></i></Link></td>
             </tr>
             <tr className={`mail-body ` + checkIfMailOpen(mail)}>
                 <td className="mail-send-from" >{mail.sendfrom}</td>
