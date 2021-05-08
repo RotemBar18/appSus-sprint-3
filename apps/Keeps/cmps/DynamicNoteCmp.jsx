@@ -2,6 +2,7 @@ import { NoteText } from './NoteText.jsx'
 import { NoteImg } from './NoteImg.jsx'
 import { NoteTodo } from './NoteTodo.jsx'
 import { NoteVideo } from './NoteVideo.jsx'
+import { NoteEmail } from './NoteEmail.jsx'
 
 export function DynamicNoteCmp({ note, onToggleTodo, openEditor }) {
 
@@ -14,7 +15,9 @@ export function DynamicNoteCmp({ note, onToggleTodo, openEditor }) {
             case 'NoteTodos':
                 return <NoteTodo note={note} onToggleTodo={onToggleTodo} openEditor={openEditor} />
             case 'NoteVideo':
-                return <NoteVideo note={note} onToggleTodo={onToggleTodo} openEditor={openEditor} />
+                return <NoteVideo note={note} openEditor={openEditor} />
+            case 'NoteEmail':
+                return <NoteEmail note={note} openEditor={openEditor} />
 
             default:
                 return console.log('error Note Type is undefined or something else...')
