@@ -55,6 +55,8 @@ function updateNote(currNoteId, changes) {
     currNote.style.bgc = (changes.bgc) ? changes.bgc : currNote.style.bgc
     currNote.info.url = (changes.url) ? changes.url : currNote.info.url
     currNote.info.videoId = (changes.videoId) ? changes.videoId : currNote.info.videoId
+    currNote.info.emailTitle = (changes.emailTitle) ? changes.emailTitle : currNote.info.emailTitle
+    currNote.info.emailBody = (changes.emailBody) ? changes.emailBody : currNote.info.emailBody
     switch (currNote.type) {
         case 'NoteText':
             if (!changes.txt) break
@@ -104,16 +106,24 @@ function copyNote(note) {
     return Promise.resolve(gNotes)
 
 }
+function createEmailNote(email) {
+    console.log('email', email)
+    createNote('NoteEmail', email)
+
+}
 
 function createNote(noteType, noteContent) {
+    console.log('noteContent', noteContent)
     let info;
-    let todos = noteContent.split(',')
-    todos = todos.map(todo => {
-        return {
-            txt: todo,
-            doneAt: null
-        }
-    })
+    if (noteType === 'NoteTodos') {
+        let todos = noteContent.split(',')
+        todos = todos.map(todo => {
+            return {
+                txt: todo,
+                doneAt: null
+            }
+        })
+    }
     switch (noteType) {
         case 'NoteText':
             info = { txt: noteContent };
@@ -134,7 +144,16 @@ function createNote(noteType, noteContent) {
                 videoId: noteContent
             }
             break
+        case 'NoteEmail':
+            info = {
+                emailTitle: noteContent.title,
+                emailBody: noteContent.body,
+                sendTo: noteContent.sendTo,
+                sendFrom: noteContent.sendfrom
+            }
+            break
     }
+
 
     const note = {
         id: utilService.makeId(),
@@ -146,6 +165,8 @@ function createNote(noteType, noteContent) {
         }
 
     }
+
+    console.log('note', note)
     gNotes.push(note)
     _saveNotesToStorage();
     return Promise.resolve(gNotes)
@@ -236,7 +257,7 @@ function _createNotes() {
                     bgc: "#7091ef"
                 }
             },
-            
+
         ];
     }
     gNotes = notes;
@@ -250,7 +271,3 @@ function _saveNotesToStorage() {
 }
 
 
-function createEmailNote(email){
-    console.log('email', email)
-
-}

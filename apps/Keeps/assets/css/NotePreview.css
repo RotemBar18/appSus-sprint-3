@@ -62,3 +62,10 @@
     width: 90%;
     border-radius: 10px;
 }
+
+.from-to-details{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    color: gray;
+}

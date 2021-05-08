@@ -15,7 +15,9 @@ export class NoteEditor extends React.Component {
             title: '',
             txt: '',
             label: '',
-            todoTxt: ''
+            todoTxt: '',
+            emailTitle: '',
+            emailBody: '',
         },
     }
 
@@ -66,7 +68,7 @@ export class NoteEditor extends React.Component {
                     <img className='remove-btn' onClick={() => { this.props.onDeleteNote(note.id) }} src="../../../assets/img/trash.png" alt="" />
                     <img className='bgc-palette-btn' onClick={() => { this.setState({ isPaletteOpen: !isPaletteOpen }) }} src="../../../assets/img/clrPalette.png" alt="" />
                     <img className='copy-btn' onClick={() => { this.props.copyNote(note) }} src="../../../assets/img/copy.png" alt="" />
-                    <img className='to-email-btn' onClick={() => { this.onSendNoteToMail(note) }} src="../../../assets/img/text.png" alt="" />
+                    <img className='to-email-btn' onClick={() => { this.onSendNoteToMail(note) }} src="../../../assets/img/send-email.png" alt="" />
                     <button className='close-editor-btn' onClick={this.props.closeEditor}>x</button>
 
 
