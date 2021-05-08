@@ -33,7 +33,6 @@ export class MailPreview extends React.Component {
 
     render() {
         const { mail, } = this.props;
-        console.log(this.state.isMailRead)
         return (
             <React.Fragment>
                 <tr className={`mail-preview ` + this.checkIfRead(mail)} onClick={(ev) => this.props.toggleMailShow(mail, ev)}>
@@ -59,8 +58,10 @@ export class MailPreview extends React.Component {
                 </tr>
                 <tr className={`mail-body ` + this.checkIfMailOpen(mail)}>
                     <td className="mail-body" colSpan="5" >{mail.body}</td>
-                    {this.state.isMailHasImg && <td><img className='preview-img' src={`${mail.imgUrl}`} alt="" /></td>}
-                    {this.state.isMailHasVideo && <td><iframe width="85%" src={`https://www.youtube.com/embed/${mail.videoSrc}?controls=0`} frameBorder="0"></iframe></td>}
+                </tr>
+                <tr>
+                    {this.state.isMailHasImg && <td className={this.checkIfMailOpen(mail)} colSpan="5"><img className='preview-img' src={`${mail.imgUrl}`} alt="" /></td>}
+                    {this.state.isMailHasVideo && <td className={this.checkIfMailOpen(mail)} colSpan="5"><iframe width="85%" src={`https://www.youtube.com/embed/${mail.videoSrc}?controls=0`} frameBorder="0"></iframe></td>}
                 </tr>
             </React.Fragment>
         )

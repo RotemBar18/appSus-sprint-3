@@ -1,6 +1,7 @@
 @import "../../apps/Emails/assets/css/mail-app.css";
 @import "../../apps/Keeps/assets/css/keep-app.css";
 @import "./app-header.css";
+@import "../../apps/Books/assets/css/main.css";
 @import "./Home.css";
 * {
     box-sizing: border-box;

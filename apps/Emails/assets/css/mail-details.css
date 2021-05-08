@@ -3,6 +3,10 @@
     justify-content: center;
 }
 
+.details-table {
+    background-color: white;
+}
+
 .fa-sticky-note {
     color: rgb(189, 185, 185);
     font-size: 1.5rem;

@@ -1,39 +1,45 @@
-
-const Router = ReactRouterDOM.HashRouter
-const { Route, Switch, Link } = ReactRouterDOM
+import { bookService } from './services/book-service.js'
+import { BooksList } from './cmps/BooksList.jsx'
 import { BookDeatails } from './pages/BookDeatails.jsx'
-import { AboutUs } from './pages/AboutUs.jsx'
-import { AddBook } from './cmps/AddBook.jsx'
+import { BooksFilter } from './cmps/BooksFilter.jsx'
 
+export class BookApp extends React.Component {
+    state = {
+        books: null,
+        filterBy: null,
+        selectedBook: null
+    }
+    componentDidMount() {
+        this.loadBooks()
+    }
 
-function Home(){
-    return <section className="home">
-        <h1>Home</h1>
-        <p>Check out our awesome <Link to="/book">books</Link> </p>
-    </section>
+    loadBooks() {
+        bookService.query(this.state.filterBy)
+            .then((books) => {
+                this.setState({ books })
+            })
+    }
+
+    setSelectedBook = (book) => {
+        this.setState({ selectedBook: book })
+    }
+
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy }, this.loadBooks)
+    }
+    render() {
+        const { books, selectedBook } = this.state
+        if (!books) return <div>Loading...</div>
+        return (
+            <section className="book-app">
+                <h2>My Books Shop</h2>
+                {!selectedBook && <React.Fragment>
+                    <BooksFilter onSetFilter={this.onSetFilter} />
+                    <BooksList books={books} setSelectedBook={this.setSelectedBook} />
+                </React.Fragment>}
+                {selectedBook &&
+                    <BookDeatails book={selectedBook} goBack={() => this.setSelectedBook(null)} />}
+            </section>
+        )
+    }
 }
-
-export function BookApp(){
-    return(
-        <section>נOOKS</section>
-        // <Router>
-        //     <header>
-        //         <AppHeader />
-        //     </header>
-        //     <main>
-        //         <Switch>
-        //             <Route component={AddBook} path="/book/addBook" />
-        //             <Route component={BookDeatails} path="/book/:bookId" />
-        //             <Route component={BookApp} path="/book" />
-        //             <Route component={AboutUs} path="/about" />
-        //             <Route component={Home} path="/" />
-        //         </Switch>
-        //     </main>
-        //     <footer>
-        //         coffeerights &copy;
-        //     </footer>
-        // </Router>
-    )
-}
-
-

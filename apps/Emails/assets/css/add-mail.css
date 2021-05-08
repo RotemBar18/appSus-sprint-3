@@ -1,31 +1,27 @@
 .add-mails-section {
     position: fixed;
-    width: 450px;
+    width: 600px;
+    min-height: 400px;
     background-color: white;
-    border: 1px solid #333;
-    margin-left: 15px;
-    top: 25%;
+    border: 1px solid #f3f5f7;
+    top: 45%;
+    left: 20%;
     justify-self: center;
+    border-radius: 5px;
+    box-shadow: -2px 2px 10px 0 #ccc;
 }
 
 .add-mail-modal .header {
     justify-content: space-between;
-    background-color: rgb(44, 43, 43);
+    background-color: #333;
     height: 40px;
     border-bottom: 1px solid #333;
-}
-
-.add-mail-modal button {
-    border: none;
-    background-color: inherit;
-    margin-right: 10px;
-    color: white;
 }
 
 .add-mail-title {
     margin: 5px;
     align-self: center;
-    color: white;
+    color: whitesmoke;
 }
 
 .add-mail-form {
@@ -36,6 +32,7 @@
 .add-mail-form input {
     border: none;
     margin-bottom: 5px;
+    font-size: 1rem;
 }
 
 .add-mail-form label {
@@ -45,19 +42,41 @@
 
 .add-mail-form .address,
 .add-mail-form .title {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #f1f1f1;
     margin-top: 10px;
 }
 
-.add-mail-modal .btn-add-mail {
-    border: 1px solid #333;
-    margin: 5px;
-    padding: 8px;
+.btn-add-mail-modal,
+.btn-add-mail-save-modal {
+    border: none;
+    font-size: 1rem;
+    margin: 10px;
+    padding: 10px;
     border-radius: 5px;
+    color: whitesmoke;
+    background-color: #4caf50;
+    width: 80px;
 }
 
-.btn-add-mail.btn-save {
-    background-color: rgb(20, 141, 189);
+.btn-add-mail-modal:hover,
+.btn-add-mail-save-modal:hover {
+    box-shadow: 0 1px 2px 0 rgb(26 115 232 / 45%), 0 1px 3px 1px rgb(26 115 232 / 30%);
+}
+
+.btn-add-mail-close {
+    border: none;
+    background-color: inherit;
+    color: inherit;
+}
+
+.btn-add-mail-close .fa-times {
+    color: whitesmoke;
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+.btn-add-mail-save-modal {
+    background-color: #1a73e8;
 }
 
 .add-mail-body {
@@ -66,4 +85,16 @@
 
 .btn-add-mail-close {
     cursor: pointer;
+}
+
+.add-mail-body:focus,
+.add-mail-body {
+    border: grey;
+    outline: grey;
+}
+
+@media screen and (max-width: 800px) {
+    .add-mails-section {
+        width: 390px;
+    }
 }

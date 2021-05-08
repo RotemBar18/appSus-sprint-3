@@ -1,21 +1,7 @@
-@import "./app-header.css";
-@import "./home.css";
 @import "./books-list.css";
 @import "./book-deatails.css";
 @import "./book-review.css";
 @import "./google-books.css";
-@import "./helpers.css";
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: rgba(245, 245, 245, 0.746);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1rem;
-    text-align: center;
-}
-
 h1,
 h2,
 h3,
@@ -23,17 +9,6 @@ h4 {
     margin: 0;
 }
 
-header {
-    background-color: #3b3a30;
-    color: whitesmoke;
-}
-
-main {
-    min-height: 60vh;
-}
-
-footer {
-    background-color: #3b3a30;
-    height: 200px;
-    color: whitesmoke;
+.book-app {
+    text-align: center;
 }

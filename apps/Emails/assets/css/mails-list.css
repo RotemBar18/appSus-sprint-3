@@ -31,6 +31,8 @@ td {
 .mail-header {
     border: none;
     line-height: 1.7em;
+    border: none;
+    background-color: rgb(252, 252, 252);
 }
 
 .row-disply-none {
@@ -92,4 +94,10 @@ td {
 
 .mail-header .fas:hover {
     color: #333;
+}
+
+@media screen and (max-width: 950px) {
+    .mails-list {
+        margin-left: 0;
+    }
 }

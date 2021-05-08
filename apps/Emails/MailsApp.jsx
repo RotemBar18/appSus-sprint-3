@@ -3,7 +3,7 @@ import { MailsList } from './cmps/MailsList.jsx'
 import { MailsSideBar } from './cmps/MailsSideBar.jsx'
 import { MailsFilter } from './cmps/MailsFilter.jsx'
 
-export class AppEmail extends React.Component {
+export class EmailApp extends React.Component {
     state = {
         mails: null,
         filterBy: null,
