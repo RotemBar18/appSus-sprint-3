@@ -211,7 +211,7 @@ function _createNotes() {
                     ]
                 },
                 style: {
-                    bgc: "#75ff6c"
+                    bgc: "#84fdf8"
                 }
             },
             {
@@ -219,10 +219,28 @@ function _createNotes() {
                 type: "NoteImg",
                 info: {
                     url: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3Vuc2V0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=60",
-                    title: "הנופים של הודו"
+                    title: "North America 2018"
                 },
                 style: {
                     bgc: "#fc7"
+                }
+            },
+            {
+                id: utilService.makeId(),
+                type: "NoteTodos",
+                info: {
+                    label: "shopping list:",
+                    todos: [
+                        { txt: "Tomatos", doneAt: null },
+                        { txt: "Flour", doneAt: null },
+                        { txt: "Milk", doneAt: null },
+                        { txt: "Eggs", doneAt: null },
+                        { txt: "Burgers", doneAt: null },
+                        { txt: "Cooking oil", doneAt: null },
+                    ]
+                },
+                style: {
+                    bgc: "#75ff6c"
                 }
             },
             {
@@ -233,7 +251,7 @@ function _createNotes() {
                     txt: "What’s the best thing about Switzerland? I don’t know, but the flag is a big plus."
                 },
                 style: {
-                    bgc: "#84fdf8"
+                    bgc: "#fc7"
                 }
             },
             {

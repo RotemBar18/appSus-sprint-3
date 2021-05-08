@@ -1,21 +1,50 @@
-form.search{
+form.search {
+    margin-left: 30px;
     font-weight: 600;
-    margin-block:20px;
+    margin-block: 20px;
     display: flex;
     flex-direction: column;
 }
-form.search input{
+
+form.search input {
     width: 25%;
-    font-size: 150%;
+    font-size: 70%;
     outline: none;
     border-radius: 10px;
-    border:0.5px solid black
+    border: 0.5px solid black
 }
+
 form.search input:hover {
-    font-size: 170%;
+    font-size: 80%;
     border: 1px solid black
 }
+
 form.search input:active {
     position: relative;
     top: 2px;
+}
+
+@media (min-width:560px) {
+    form.search input {
+        font-size: 90%;
+    }
+    form.search input:hover {
+        font-size: 100%;
+    }
+}
+@media (min-width:800px) {
+    form.search input {
+        font-size: 110%;
+    }
+    form.search input:hover {
+        font-size: 120%;
+    }
+}
+@media (min-width:1050px) {
+    form.search input {
+        font-size: 130%;
+    }
+    form.search input:hover {
+        font-size: 140%;
+    }
 }
