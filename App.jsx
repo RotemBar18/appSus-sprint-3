@@ -3,7 +3,7 @@ const { Route, Switch } = ReactRouterDOM
 
 import { AppHeader } from './cmps/AppHeader.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
-import { mailDeatails } from './apps/Emails/pages/mailDeatails.jsx'
+import { mailDetails } from './apps/Emails/pages/mailDetails.jsx'
 import { AppEmail } from './apps/Emails/MailsApp.jsx'
 import { KeepApp } from './apps/Keeps/KeepApp.jsx'
 import { BookApp } from './apps/Books/BookApp.jsx'
@@ -23,7 +23,7 @@ export function App() {
             </header>
             <main>
                 <Switch>
-                <Route component={mailDeatails} path="/misterEmail/:mailId"/>
+                <Route component={mailDetails} path="/misterEmail/:mailId"/>
                     <Route component={AppEmail} path="/misterEmail" />
                     <Route component={KeepApp} path="/missKeep" />
                     {/* <Route component={AppBook} path="/missBook" /> */}

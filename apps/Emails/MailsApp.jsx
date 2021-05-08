@@ -1,9 +1,7 @@
 import { mailsService } from './services/mails-service.js'
 import { MailsList } from './cmps/MailsList.jsx'
 import { MailsSideBar } from './cmps/MailsSideBar.jsx'
-// import { MailDeatails } from './MailDeatails.jsx'
 import { MailsFilter } from './cmps/MailsFilter.jsx'
-import { noteService } from '../Keeps/services/note-service.js'
 
 export class AppEmail extends React.Component {
     state = {

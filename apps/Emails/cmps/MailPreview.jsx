@@ -29,8 +29,8 @@ export function MailPreview({ mail, selectedMail, toggleMailShow, OnRemoveMail  
             <tr className={`mail-header ` + checkIfMailOpen(mail)}>
                 <td className="mail-title" colSpan="3">{mail.title}</td>
                 <td className="btn-close" onClick={(ev) => toggleMailShow(mail, ev)}><i className="fas fa-times"></i></td>
-                <td className="mail-deatails" >
-                    <Link className="mail-deatails" to={`/misterEmail/${mail.id}`}><i className="fas fa-expand"></i></Link></td>
+                <td className="mail-details" >
+                    <Link className="mail-details" to={`/misterEmail/${mail.id}`}><i className="fas fa-expand"></i></Link></td>
             </tr>
             <tr className={`mail-body ` + checkIfMailOpen(mail)}>
                 <td className="mail-send-from" >{mail.sendfrom}</td>

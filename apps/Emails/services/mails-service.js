@@ -6,7 +6,7 @@ export const mailsService = {
     toggleMailShow,
     addMail,
     removeMail,
-    getMailDeatails,
+    getMailDetails,
     sendNoteToMail
 }
 
@@ -173,12 +173,12 @@ function removeMail(mailId) {
     return Promise.resolve(gMails)
 }
 
-function getMailDeatails(mailId) {
+function getMailDetails(mailId) {
     const mail = gMails.find(mail => mail.id === mailId)
     return Promise.resolve(mail)
 }
 
-function sendNoteToMail(note){
+function sendNoteToMail(note) {
     console.log('note', note)
 
 }

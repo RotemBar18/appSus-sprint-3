@@ -1,6 +1,6 @@
 import { noteService } from '../../Keeps/services/note-service.js';
 import { mailsService } from '../services/mails-service.js'
-export class mailDeatails extends React.Component {
+export class mailDetails extends React.Component {
 
     state = {
         mail: null
@@ -8,11 +8,11 @@ export class mailDeatails extends React.Component {
 
     componentDidMount() {
         const mailId = this.props.match.params.mailId;
-        this.getMailDeatails(mailId)
+        this.getMailDetails(mailId)
     }
 
-    getMailDeatails(mailId) {
-        mailsService.getMailDeatails(mailId).then((mail) => {
+    getMailDetails(mailId) {
+        mailsService.getMailDetails(mailId).then((mail) => {
             this.setState({ mail })
         })
     }
@@ -28,8 +28,8 @@ export class mailDeatails extends React.Component {
     render() {
         const { mail } = this.state
         if (!mail) return <div>Loading...</div>
-        return <div className="mail-deatails flex" >
-            <table className="deatails-table clean-list">
+        return <div className="mail-details flex" >
+            <table className="details-table clean-list">
                 <tbody>
                     <tr className='mail-header '>
                         <td className="mail-title" colSpan="1">{mail.title}</td>

@@ -29,13 +29,6 @@ export class MailsFilter extends React.Component {
             <form className="mail-filter" onSubmit={this.onFilter}>
                 <label htmlFor="byName"></label>
                 <input type="text" id="byName`" name="text" value={text} placeholder="Search text..." onChange={this.handleChange} />
-
-                {/* <label htmlFor="minPrice"></label>
-                <input type="number" id="minPrice" name="minPrice" value={minPrice} placeholder="Search minSpeed..." onChange={this.handleChange} />
-
-                <label htmlFor="maxPrice"></label>
-                <input type="number" id="maxPrice" name="maxPrice" value={maxPrice} placeholder="Search maxSpeed..." onChange={this.handleChange} /> */}
-
                 <label htmlFor="filter-by"></label>
                 <select className="filter-by" name="filter-by" id="filter-by">
                     <option value="text">text</option>
