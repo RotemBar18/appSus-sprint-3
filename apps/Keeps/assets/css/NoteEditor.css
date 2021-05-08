@@ -13,7 +13,8 @@
     position: relative;
     margin-top: 10px;
     display: flex;
-    justify-content: space-between;;
+    justify-content: space-between;
+    ;
     background-color: white;
     border: 0.5px solid gray;
     border-radius: 10px;
@@ -21,8 +22,6 @@
     grid-template-rows: repeat(1, 1fr);
     justify-items: center;
 }
-
-
 
 .note-editor .preview-img {
     margin-top: 5px;
@@ -39,7 +38,6 @@
     transition: 0.5s;
     position: relative;
     justify-self: end;
-
 }
 
 .close-editor-btn:hover {
@@ -83,6 +81,27 @@
 }
 
 .remove-btn:active {
+    transition: none;
+    background-color: inherit;
+    opacity: 1;
+    color: white;
+}
+
+.edit-txt-btn {
+    background-color: rgba(165, 165, 165, 0);
+    border: none;
+    border-radius: 0 0 0 3px;
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.edit-txt-btn:hover {
+    background-color: inherit;
+    opacity: 0.5;
+    color: white;
+}
+
+.edit-txt-btn:active {
     transition: none;
     background-color: inherit;
     opacity: 1;
@@ -135,14 +154,11 @@
     z-index: 1;
     display: grid;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.87);
+    background-color: rgb(155, 155, 155);
     bottom: -63px;
     right: 0;
     border: 1px solid gray;
     border-radius: 10px;
-}
-.bgc-palette:hover {
-    background-color: rgba(255, 255, 255, 1);
 }
 
 .bgc-palette-btn {
@@ -189,7 +205,7 @@
 
 .bgc.purple-btn {
     grid-column: 1/2;
-    grid-row:2/3;
+    grid-row: 2/3;
     background-color: #d48ef7;
     border: 1px solid rgb(54, 54, 54)
 }
@@ -221,12 +237,14 @@
     background-color: #7091ef;
     border: 1px solid rgb(54, 54, 54)
 }
+
 .bgc.lightblue-btn {
     grid-column: 3/4;
     grid-row: 2/3;
     background-color: #84fdf8;
     border: 1px solid rgb(54, 54, 54)
 }
+
 .bgc.orange-btn {
     grid-column: 3/4;
     grid-row: 1/2;
@@ -234,17 +252,7 @@
     border: 1px solid rgb(54, 54, 54)
 }
 
-.edit-txt-btn{
-    grid-column: 2/3;
-    grid-row: 1/2;
-    width: 20px;
-    cursor: pointer;
-}
-
-
-
-
-.dynamic-edit-container{
+.dynamic-edit-container {
     z-index: 1;
     display: flex;
     flex-direction: column;

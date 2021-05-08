@@ -17,7 +17,6 @@ export class NotePreview extends React.Component {
 
     closeEditor = () => {
         this.setState({ isEditorOpen: false })
-        // this.setState({ selectedNote: null })
     }
 
     render() {

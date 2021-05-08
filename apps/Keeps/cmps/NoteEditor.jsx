@@ -25,7 +25,6 @@ export class NoteEditor extends React.Component {
     }
 
     handleChange = (ev) => {
-        console.log(this.props.note.id);
         const field = ev.target.name
         const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value
         this.setState({ inputs: { ...this.state.inputs, [field]: value } }, () => {

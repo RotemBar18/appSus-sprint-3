@@ -51,7 +51,6 @@ function toggleTodo(todo) {
 
 function updateNote(currNoteId, changes) {
     const currNote = gNotes.find(note => note.id === currNoteId)
-    console.log('currNote', currNote)
     currNote.style.bgc = (changes.bgc) ? changes.bgc : currNote.style.bgc
     currNote.info.url = (changes.url) ? changes.url : currNote.info.url
     currNote.info.videoId = (changes.videoId) ? changes.videoId : currNote.info.videoId
@@ -74,13 +73,6 @@ function updateNote(currNoteId, changes) {
             currNote.info.todos = changes.todoTxt
             break
     }
-
-    // var noteIdx = gNotes.findIndex((note) => {
-    //     return note.id === currNote.id;
-    // })
-    // gNotes[noteIdx] = 
-    // console.log('gNotes', gNotes)
-    // gNotes.splice(noteIdx, 1, currNote)
 
     _saveNotesToStorage();
     return Promise.resolve(gNotes)
@@ -107,13 +99,11 @@ function copyNote(note) {
 
 }
 function createEmailNote(email) {
-    console.log('email', email)
     createNote('NoteEmail', email)
 
 }
 
 function createNote(noteType, noteContent) {
-    console.log('noteContent', noteContent)
     let info;
     if (noteType === 'NoteTodos') {
         let todos = noteContent.split(',')
@@ -166,7 +156,6 @@ function createNote(noteType, noteContent) {
 
     }
 
-    console.log('note', note)
     gNotes.push(note)
     _saveNotesToStorage();
     return Promise.resolve(gNotes)

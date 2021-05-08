@@ -37,6 +37,6 @@ const DynamicCmp = (newNoteType, handleChange) => {
                 <input className='new-note' type="text" name="" id="" placeholder='Enter YouTube video ID...' onChange={handleChange} />
             )
         default:
-            return //...some default error view
+            return console.log('your note type is not correct')
     }
 }
