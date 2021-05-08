@@ -26,6 +26,10 @@ var gMails = [{
         isSendMail: true,
         isInbox: true,
         isStarred: true,
+        isMailHasVideo: false,
+        isMailHasImg: false,
+        imgUrl: null,
+        videoSrc: null,
     },
     {
         id: utilService.makeId(),
@@ -42,6 +46,10 @@ var gMails = [{
         isSendMail: true,
         isInbox: true,
         isStarred: false,
+        isMailHasVideo: false,
+        isMailHasImg: false,
+        imgUrl: null,
+        videoSrc: null,
     },
     {
         id: utilService.makeId(),
@@ -58,6 +66,10 @@ var gMails = [{
         isSendMail: false,
         isInbox: true,
         isStarred: false,
+        isMailHasVideo: false,
+        isMailHasImg: false,
+        imgUrl: null,
+        videoSrc: null,
     },
     {
         id: utilService.makeId(),
@@ -74,6 +86,10 @@ var gMails = [{
         isSendMail: true,
         isInbox: true,
         isStarred: true,
+        isMailHasVideo: false,
+        isMailHasImg: false,
+        imgUrl: null,
+        videoSrc: null,
     },
     {
         id: utilService.makeId(),
@@ -90,6 +106,10 @@ var gMails = [{
         isSendMail: false,
         isInbox: true,
         isStarred: false,
+        isMailHasVideo: false,
+        isMailHasImg: false,
+        imgUrl: null,
+        videoSrc: null,
     },
     {
         id: utilService.makeId(),
@@ -106,6 +126,10 @@ var gMails = [{
         isSendMail: false,
         isInbox: true,
         isStarred: false,
+        isMailHasVideo: false,
+        imgUrl: null,
+        videoSrc: null,
+        isMailHasImg: false,
     },
     {
         id: utilService.makeId(),
@@ -122,6 +146,10 @@ var gMails = [{
         isSendMail: false,
         isInbox: true,
         isStarred: false,
+        isMailHasVideo: false,
+        isMailHasImg: false,
+        imgUrl: null,
+        videoSrc: null,
     },
 ]
 
@@ -163,6 +191,10 @@ function addMail({ body, sendTo, title }, isDraft, isSendMail) {
         isSendMail,
         isInbox: false,
         isStarred: false,
+        isMailHasVideo: false,
+        isMailHasImg: false,
+        imgUrl: null,
+        videoSrc: null,
     }, )
     return Promise.resolve(gMails)
 }
@@ -179,6 +211,72 @@ function getMailDetails(mailId) {
 }
 
 function sendNoteToMail(note) {
-    console.log('note', note)
+    var mail = {
+        body: '',
+        sendTo: ['Enter address'],
+        title: 'Note',
+    }
+    if (note.type === 'NoteText') {
+        mail.body = note.info.txt;
+    } else if (note.type === 'NoteTodos') {
+        var txt = note.info.todos.map(todo => {
+            var str = `▪ ${todo.txt}`
+            str += (todo.doneAt) = ': done!.'
+            return str;
+        }).join()
+        mail.body = txt;
+    } else if (note.type === 'NoteImg') {
+        return _addMailFromImgNote(note)
+    } else if (note.type === 'NoteVideo') {
+        return _addMailFromVideoNote(note);
+    }
+    addMail(mail, true, false)
+}
 
+function _addMailFromImgNote(note) {
+    const mail = {
+        id: utilService.makeId(),
+        title: 'Img note',
+        subtitle: "",
+        body: note.info.title,
+        sendTo: "me",
+        sendfrom: "me",
+        sentAt: "09/05/21",
+        isRead: false,
+        isOpen: false,
+        mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: true,
+        isSendMail: false,
+        isInbox: false,
+        isStarred: false,
+        isMailHasVideo: false,
+        imgUrl: note.info.url,
+        videoSrc: null,
+        isMailHasImg: true,
+    }
+    gMails.unshift(mail);
+}
+
+function _addMailFromVideoNote(note) {
+    const mail = {
+        id: utilService.makeId(),
+        title: 'Video note',
+        subtitle: "",
+        body: '',
+        sendTo: "me",
+        sendfrom: "me",
+        sentAt: "09/05/21",
+        isRead: false,
+        isOpen: false,
+        mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: true,
+        isSendMail: false,
+        isInbox: false,
+        isStarred: false,
+        isMailHasVideo: true,
+        imgUrl: null,
+        videoSrc: note.info.videoId,
+        isMailHasImg: false,
+    }
+    gMails.unshift(mail);
 }
