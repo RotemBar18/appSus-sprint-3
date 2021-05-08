@@ -13,3 +13,8 @@
 .fa-sticky-note:hover {
     color: #333;
 }
+
+.mail-details-body {
+    font-size: 1.2rem;
+    line-height: 1.7em;
+}

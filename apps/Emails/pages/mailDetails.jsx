@@ -40,7 +40,7 @@ export class mailDetails extends React.Component {
                         <td className="mail-send-from" colSpan="1">{mail.sendfrom}</td>
                         <td className="mail-address-from" colSpan="2">{mail.mailAddress}</td>
                     </tr>
-                    <tr className='mail-body'>
+                    <tr className='mail-details-body'>
                         <td className="mail-body" colSpan="3">{mail.body}</td>
                     </tr>
                 </tbody>
