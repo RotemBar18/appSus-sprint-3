@@ -51,12 +51,16 @@
 
 }
 
-@media (min-width:650px) {
+@media (min-width:940px) {
     .keep-app-link {
         font-size: 2rem;
+        width: 45%;
+        margin-right:20px ;
     }
     .email-app-link {
+        margin-left:20px ;
         font-size: 2rem;
+        width: 45%;
     }
     .home-page {
         flex-direction: row;

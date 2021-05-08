@@ -1,4 +1,5 @@
-.new-note-input{
+.new-note-input {
+    width: 40%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -11,44 +12,62 @@
     border: 0.5px solid black;
 }
 
-.note-types{
+.note-types {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 10px;
 }
 
-
-.list-btn{
-    width: 2rem;
+.note-types>* {
+    width: 10%;
     cursor: pointer;
-}
-.video-btn{
-    width: 2rem;
-    cursor: pointer;
-
-}
-.text-btn{
-    width: 2rem;
-    cursor: pointer;
-}
-.img-btn{
-    width: 2rem;
-    cursor: pointer;
-
+    transition: 0.3s;
+    border-radius: 10px;
 }
 
-.add-note{
+.note-types>*:hover {
+    width: 15%;
+    background-color: rgba(0, 0, 0, 0.13);
+}
+.note-types>*:active {
+    position: relative;
+    top:2px
+}
+
+.add-note {
     display: flex;
 }
 
-input.new-note{
+input.new-note {
+    width: 100%;
     outline: none;
+    font-size: 150%;
     border-radius: 10px;
-    border:0.5px solid black
+    border: 0.5px solid black
 }
 
-.add-btn{
-    margin-left:10px ;
-    width: 1.5rem;
-    height:  1.5rem;
+input.new-note:hover {
+    font-size: 170%;
+    border: 1px solid black
+}
+
+input.new-note:active {
+    position: relative;
+    top: 2px;
+}
+
+.add-btn {
+    margin-left: 5px;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
+    transition: 0.3s;
+}
+.add-btn:hover {
+    width: 2.3rem;
+    height: 2.3rem;
+}
+.add-btn:active {
+    position: relative;
+    top:2px
 }

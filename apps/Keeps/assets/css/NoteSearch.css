@@ -1,11 +1,21 @@
 form.search{
+    font-weight: 600;
     margin-block:20px;
     display: flex;
     flex-direction: column;
 }
 form.search input{
     width: 25%;
+    font-size: 150%;
     outline: none;
     border-radius: 10px;
     border:0.5px solid black
+}
+form.search input:hover {
+    font-size: 170%;
+    border: 1px solid black
+}
+form.search input:active {
+    position: relative;
+    top: 2px;
 }
