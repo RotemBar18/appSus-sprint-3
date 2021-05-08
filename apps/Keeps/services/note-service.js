@@ -53,6 +53,7 @@ function updateNote(currNoteId, changes) {
     console.log('currNote', currNote)
     currNote.style.bgc = (changes.bgc) ? changes.bgc : currNote.style.bgc
     currNote.info.url = (changes.url) ? changes.url : currNote.info.url
+    currNote.info.src = (changes.src) ? changes.src : currNote.info.src
     switch (currNote.type) {
         case 'NoteText':
             if (!changes.txt) break
@@ -127,8 +128,10 @@ function createNote(noteType, noteContent) {
                 label: "new Note List",
                 todos
             }
-
-
+        case 'NoteTodos':
+            info = {
+                src: noteContent
+            }
             break
     }
 
@@ -187,6 +190,16 @@ function _createNotes() {
                 },
                 style: {
                     bgc: "#3CF130"
+                }
+            },
+            {
+                id: utilService.makeId(),
+                type: "NoteVideo",
+                info: {
+                    src: "../../../assets/videos/example1.mp4",
+                },
+                style: {
+                    bgc: "#ffffff"
                 }
             }
         ];

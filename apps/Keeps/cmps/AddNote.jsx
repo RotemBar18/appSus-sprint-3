@@ -8,6 +8,7 @@ export function AddNote({ onAddNote, newNoteType, onSubmit, handleChange }) {
                 <button onClick={() => { onSubmit('NoteText') }}>Text</button>
                 <button onClick={() => { onSubmit('NoteImg') }}>Img</button>
                 <button onClick={() => { onSubmit('NoteTodos') }}>List</button>
+                <button onClick={() => { onSubmit('NoteVideo') }}>Video</button>
                 <button onClick={() => { onAddNote() }}>+</button>
 
             </div>
@@ -28,6 +29,10 @@ const DynamicCmp = (newNoteType, handleChange) => {
         case 'NoteTodos':
             return (
                 <input type="text" name="" id="" placeholder='Enter comma seperated list...' onChange={handleChange} />
+            )
+        case 'NoteVideo':
+            return (
+                <input type="text" name="" id="" placeholder='Enter video SRC...' onChange={handleChange} />
             )
         default:
             return //...some default error view
