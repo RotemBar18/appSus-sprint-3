@@ -26,7 +26,6 @@ export class NotePreview extends React.Component {
         const { isEditorOpen } = this.state
         return (
             <React.Fragment>
-
                 <article className="note-container">
                     <DynamicNoteCmp note={note} onToggleTodo={onToggleTodo} openEditor={this.openEditor} />
                 {

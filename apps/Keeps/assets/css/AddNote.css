@@ -1,0 +1,53 @@
+.new-note-input{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    background-color: white;
+    top: 10px;
+    border-radius: 10px;
+
+}
+
+.note-types{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.list-btn{
+    width: 2rem;
+    cursor: pointer;
+}
+.video-btn{
+    width: 2rem;
+    cursor: pointer;
+
+}
+.text-btn{
+    width: 2rem;
+    cursor: pointer;
+}
+.img-btn{
+    width: 2rem;
+    cursor: pointer;
+
+}
+
+.add-note{
+    display: flex;
+}
+
+input.new-note{
+    outline: none;
+    border-radius: 10px;
+    border:0.5px solid black
+}
+
+.add-btn{
+    margin-left:10px ;
+    width: 1.5rem;
+    height:  1.5rem;
+    cursor: pointer;
+}

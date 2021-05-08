@@ -17,13 +17,11 @@ export class NoteSearch extends React.Component {
   }
 
   render() {
-    const { searchBy } = this.state
     return (
       <div className="note-search">
-        <h1>Search:</h1>
         <form className="search" onSubmit={this.onFilter}>
 
-          <label htmlFor="searchBy">By Key Word</label>
+          <label htmlFor="searchBy">Search by key word:</label>
           <input type="text" id="searchBy" name="searchBy" placeholder='search...' onChange={this.handleChange} />
         </form>
       </div>

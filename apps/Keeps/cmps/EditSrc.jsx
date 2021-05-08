@@ -3,7 +3,7 @@ export function EditSrc({ note, handleChange }) {
 
     return (
         <div className='dynamic-edit-container'>
-            <input name='src' className='src-input' autoComplete='off' onChange={handleChange} type="text" placeholder={note.info.src} />
+            <input name='videoId' className='videoId-input' autoComplete='off' onChange={handleChange} type="text" placeholder='enter YouTube video ID' />
         </div>
     )
 }

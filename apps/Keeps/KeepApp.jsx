@@ -1,7 +1,6 @@
 import { NotesList } from './cmps/NotesList.jsx'
 import { AddNote } from './cmps/AddNote.jsx'
 import { noteService } from './services/note-service.js'
-import { NoteEditor } from './cmps/NoteEditor.jsx'
 import { NoteSearch } from './cmps/NoteSearch.jsx'
 
 export class KeepApp extends React.Component {
@@ -81,7 +80,6 @@ export class KeepApp extends React.Component {
             <section className="note-app">
                 <AddNote newNoteType={this.state.newNoteType} handleChange={this.handleChange} onAddNote={this.onAddNote} onSubmit={this.onSubmit} />
                 <NoteSearch onSetSearch={this.onSetSearch} />
-                <h2>My Notes</h2>
                 <NotesList copyNote={this.OnCopyNote}
                     closeEditor={this.closeEditor}
                     renderEdited={this.renderEdited}

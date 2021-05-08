@@ -10,7 +10,7 @@ export class NoteEditor extends React.Component {
         inputs: {
             bgc: '',
             url: '',
-            src: '',
+            videoId: '',
             title: '',
             txt: '',
             label: '',
@@ -56,12 +56,12 @@ export class NoteEditor extends React.Component {
                         <BgcPalette setColor={this.setColor} />
                     }
 
-                    <img className='edit-txt-btn' onClick={() => { this.setState({ isDynamicEditCmpOpen: !isDynamicEditCmpOpen }) }} src="../../../assets/img/edit.png" alt="" />
-                    <img className='bgc-palette-btn' onClick={() => { this.setState({ isPaletteOpen: !isPaletteOpen }) }} src="../../../assets/img/clrPalette.png" alt="" />
-                    <button className='close-editor-btn' onClick={this.props.closeEditor}>x</button>
-                    <img className='copy-btn' onClick={() => { this.props.copyNote(note) }} src="../../../assets/img/copy.png" alt="" />
-                    <img className='remove-btn' onClick={() => { this.props.onDeleteNote(note.id) }} src="../../../assets/img/trash.png" alt="" />
                     <img className='pin-btn' onClick={() => { this.props.pinNote(note) }} src="../../../assets/img/pin.png" alt="" />
+                    <img className='edit-txt-btn' onClick={() => { this.setState({ isDynamicEditCmpOpen: !isDynamicEditCmpOpen }) }} src="../../../assets/img/text.png" alt="" />
+                    <img className='remove-btn' onClick={() => { this.props.onDeleteNote(note.id) }} src="../../../assets/img/trash.png" alt="" />
+                    <img className='bgc-palette-btn' onClick={() => { this.setState({ isPaletteOpen: !isPaletteOpen }) }} src="../../../assets/img/clrPalette.png" alt="" />
+                    <img className='copy-btn' onClick={() => { this.props.copyNote(note) }} src="../../../assets/img/copy.png" alt="" />
+                    <button className='close-editor-btn' onClick={this.props.closeEditor}>x</button>
 
 
 

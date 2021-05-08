@@ -53,7 +53,7 @@ function updateNote(currNoteId, changes) {
     console.log('currNote', currNote)
     currNote.style.bgc = (changes.bgc) ? changes.bgc : currNote.style.bgc
     currNote.info.url = (changes.url) ? changes.url : currNote.info.url
-    currNote.info.src = (changes.src) ? changes.src : currNote.info.src
+    currNote.info.videoId = (changes.videoId) ? changes.videoId : currNote.info.videoId
     switch (currNote.type) {
         case 'NoteText':
             if (!changes.txt) break
@@ -128,9 +128,9 @@ function createNote(noteType, noteContent) {
                 label: "new Note List",
                 todos
             }
-        case 'NoteTodos':
+        case 'NoteVideo':
             info = {
-                src: noteContent
+                videoId: noteContent
             }
             break
     }
@@ -158,10 +158,20 @@ function _createNotes() {
         notes = [
             {
                 id: utilService.makeId(),
+                type: "NoteVideo",
+                info: {
+                    videoId: "yXrlhebkpIQ",
+                },
+                style: {
+                    bgc: "#d48ef7"
+                }
+            },
+            {
+                id: utilService.makeId(),
                 type: "NoteText",
                 isPinned: true,
                 info: {
-                    txt: "Fullstack!"
+                    txt: "DONT FORGET WEDNESDAY 9PM MEETING"
                 },
                 style: {
                     bgc: "#D75E45"
@@ -169,39 +179,63 @@ function _createNotes() {
             },
             {
                 id: utilService.makeId(),
-                type: "NoteImg",
+                type: "NoteTodos",
                 info: {
-                    url: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3Vuc2V0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=60",
-                    title: "Me playing Mi"
+                    label: "Work progress ",
+                    todos: [
+                        { txt: "work on css", doneAt: null },
+                        { txt: "build components for different type of notes", doneAt: 187111111 },
+                        { txt: "DONT FORGET CRUD!", doneAt: null }
+                    ]
                 },
                 style: {
-                    bgc: "#547FF8"
+                    bgc: "#75ff6c"
                 }
             },
             {
                 id: utilService.makeId(),
-                type: "NoteTodos",
+                type: "NoteImg",
                 info: {
-                    label: "How was it:",
-                    todos: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }
-                    ]
+                    url: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3Vuc2V0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=60",
+                    title: "הנופים של הודו"
                 },
                 style: {
-                    bgc: "#3CF130"
+                    bgc: "#fc7"
+                }
+            },
+            {
+                id: utilService.makeId(),
+                type: "NoteText",
+                isPinned: true,
+                info: {
+                    txt: "What’s the best thing about Switzerland? I don’t know, but the flag is a big plus."
+                },
+                style: {
+                    bgc: "#84fdf8"
                 }
             },
             {
                 id: utilService.makeId(),
                 type: "NoteVideo",
                 info: {
-                    src: "../../../assets/videos/example1.mp4",
+                    videoId: "NUYvbT6vTPs",
                 },
                 style: {
-                    bgc: "#ffffff"
+                    bgc: "#f8f87c"
                 }
-            }
+            },
+            {
+                id: utilService.makeId(),
+                type: "NoteImg",
+                info: {
+                    url: "https://images-na.ssl-images-amazon.com/images/I/A1zx8Mw5itL._AC_SL1500_.jpg",
+                    title: "Starry Night"
+                },
+                style: {
+                    bgc: "#7091ef"
+                }
+            },
+            
         ];
     }
     gNotes = notes;
