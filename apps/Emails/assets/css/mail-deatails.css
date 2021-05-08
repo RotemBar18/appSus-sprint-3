@@ -1,0 +1,15 @@
+.mail-deatails {
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.fa-sticky-note {
+    color: rgb(189, 185, 185);
+    font-size: 1.5rem;
+    padding: 5px;
+    text-align: end;
+}
+
+.fa-sticky-note:hover {
+    color: #333;
+}

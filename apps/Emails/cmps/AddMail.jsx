@@ -45,7 +45,7 @@ export class AddMail extends React.Component {
                 <div className="add-mail-modal">
                     <div className='header flex'>
                         <p className='add-mail-title'>New mail</p>
-                        <button onClick={this.props.toggleAddMail}>X</button>
+                        <button className='btn-add-mail-close' onClick={this.props.toggleAddMail}>X</button>
                     </div>
 
                     <form className='add-mail-form' onSubmit={this.onSubmit}>
