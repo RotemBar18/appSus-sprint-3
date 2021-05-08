@@ -1,11 +1,14 @@
 @import "../../apps/Emails/assets/css/mail-app.css";
 @import "../../apps/Keeps/assets/css/keep-app.css";
+@import "./app-header.css";
 * {
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
 .app-header {
     display: flex;
+    border: 1px solid #333;
 }
 
 .app-header {
@@ -19,4 +22,13 @@
 
 .app-header ul>* {
     padding: 5px;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }

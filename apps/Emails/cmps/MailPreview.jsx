@@ -1,4 +1,6 @@
-export function MailPreview({ mail, selectedMail, toggleMailShow }) {
+const { Link} = ReactRouterDOM
+
+export function MailPreview({ mail, selectedMail, toggleMailShow , OnRemoveMail}) {
 
     function checkIfRead(mail) {
         if (!mail.isRead) return "un-read"
@@ -10,24 +12,25 @@ export function MailPreview({ mail, selectedMail, toggleMailShow }) {
 
     function setFirstLetterSymbol(name) {
         return `apps/Emails/assets/img/letters/${name.charAt(0).toUpperCase()}.png`
-        // return "../assets/img/letters/A.png"
     }
+
 
     return (
         <React.Fragment>
-            <tr className={`mail-preview ` + checkIfRead(mail)} onClick={() => toggleMailShow(mail)}>
+            <tr className={`mail-preview ` + checkIfRead(mail)} onClick={(ev) => toggleMailShow(mail, ev)}>
                 <td className="mail-letter-symbol">
-                    <div className="img-mail-letter-container flex">
                     <img className="img-mail-letter-symbol" src={setFirstLetterSymbol(mail.sendfrom)} alt="" ></img>
-                    </div>
                 </td>
                 <td className="mail-send-form">{mail.sendfrom}</td>
                 <td className="mail-title">{mail.title}</td>
-                <td className="mail-send-at" colSpan="2">{mail.sentAt}</td>
+                <td className="fas fa-trash fa-lg" onClick={(ev) => OnRemoveMail(mail,ev)}></td>
+                <td className="mail-send-at" >{mail.sentAt}</td>
             </tr>
             <tr className={`mail-header ` + checkIfMailOpen(mail)}>
-                <td className="mail-title" colSpan="4">{mail.title}</td>
-                <td className="btn-close" onClick={() => toggleMailShow(mail)}>X</td>
+                <td className="mail-title" colSpan="3">{mail.title}</td>
+                <td className="btn-close" onClick={(ev) => toggleMailShow(mail, ev)}><i className="fas fa-times"></i></td>
+                <td className="mail-deatails" >
+                        <Link className="mail-deatails" to={`/misterEmail/${mail.id}`}><i className="fas fa-expand"></i></Link></td>
             </tr>
             <tr className={`mail-body ` + checkIfMailOpen(mail)}>
                 <td className="mail-send-from" >{mail.sendfrom}</td>

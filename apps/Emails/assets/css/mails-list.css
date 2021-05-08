@@ -5,11 +5,13 @@
 table {
     border: 1px solid rgb(194, 188, 188);
     border-collapse: collapse;
-    width: 80%;
+    width: 70%;
 }
 
 .mails-list {
     margin-left: 145px;
+    display: flex;
+    justify-content: center;
 }
 
 tbody {
@@ -21,15 +23,12 @@ tr {
 }
 
 td {
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
 }
 
+.mail-body,
 .mail-header {
-    border: none;
-}
-
-.mail-body {
     border: none;
 }
 
@@ -53,11 +52,36 @@ td {
 }
 
 .img-mail-letter-symbol {
-    width: 25px;
+    max-width: 40px;
+    padding-left: 5px;
 }
 
-.img-mail-letter-container {
+.fa-trash {
+    visibility: hidden;
+    color: rgb(187, 185, 185);
+    font-size: 1.3rem;
+}
+
+.fa-trash:hover {
+    color: grey;
+}
+
+.mail-preview:hover {
+    background-color: rgb(252, 252, 252);
+}
+
+.mail-preview:hover .fa-trash {
+    visibility: visible;
+    margin-top: 30%;
+}
+
+.mail-header .fas {
+    color: rgb(189, 185, 185);
+    font-size: 1.5rem;
     padding: 5px;
-    border: 1px solid rgb(146, 144, 144);
-    border-radius: 50%;
+    text-align: end;
+}
+
+.mail-header .fas:hover {
+    color: #333;
 }

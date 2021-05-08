@@ -1,0 +1,67 @@
+.app-header {
+    background-color: #333;
+    height: 100px;
+    color: whitesmoke;
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+}
+
+.nav-app-header {
+    position: relative;
+}
+
+.nav-app-header .contant {
+    position: fixed;
+    z-index: 5;
+    top: 5.5em;
+    left: 10px;
+    height: 200px;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+.nav-app-header .hidden {
+    display: none;
+}
+
+.nav-app-header .contant a {
+    color: rgb(155, 153, 153);
+    font-size: 1.2rem;
+    display: block;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.nav-app-header .contant a:hover {
+    color: #333;
+    transition: 0.5s;
+}
+
+.nav-app-header .fas {
+    display: block;
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.btn-app-header {
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 5px;
+    margin-left: 20px;
+}
+
+.btn-app-header:hover {
+    color: rgb(148, 147, 147);
+}

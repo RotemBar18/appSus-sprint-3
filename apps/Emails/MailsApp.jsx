@@ -26,7 +26,8 @@ export class AppEmail extends React.Component {
         this.setState({ selectedMail: mail })
     }
 
-    toggleMailShow = (mail) => {
+    toggleMailShow = (mail, ev) => {
+        if ('fas fa-trash fa-lg' === ev.target.className) return
         mailsService.toggleMailShow(mail.id).then((mails) => {
             this.setState({ mails })
         })
@@ -40,6 +41,11 @@ export class AppEmail extends React.Component {
         this.setState({ filterByProperty }, this.loadMails)
     }
 
+    OnRemoveMail = (mail, ev) =>{
+        mailsService.removeMail(mail.id).then((mails) => {
+            this.setState({ mails })
+        })
+    }
 
     render() {
         const { mails, selectedMail} = this.state
@@ -49,7 +55,7 @@ export class AppEmail extends React.Component {
                 <div className="mail-container flex"></div>
                 <MailsSideBar mails={mails} showFilterByProperties={this.showFilterByProperties} ></MailsSideBar>
                 <MailsFilter onSetFilter={this.onSetFilter} />
-                <MailsList mails={mails} setSelectedMail={this.setSelectedMail} toggleMailShow={this.toggleMailShow} />
+                <MailsList mails={mails} setSelectedMail={this.setSelectedMail} toggleMailShow={this.toggleMailShow} OnRemoveMail={this.OnRemoveMail} />
             </section>
         )
     }

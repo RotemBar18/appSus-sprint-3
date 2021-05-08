@@ -5,6 +5,8 @@ export const mailsService = {
     query,
     toggleMailShow,
     addMail,
+    removeMail,
+    getMailDeatails,
 }
 
 const KEY = 'mails';
@@ -23,6 +25,22 @@ var gMails = [{
         isSendMail: true,
         isInbox: true,
         isStarred: true,
+    },
+    {
+        id: utilService.makeId(),
+        title: 'Your automatic payment is approaching',
+        subtitle: "",
+        body: 'Hi John,Over 40 former Weeknight Chef members took advantage of our special rejoin offer last week and we hope you’ll be next! Sign back up today and get your first month plus three dessert kits FREE! Don’t delay - the offer is only valid for the first 100 returning members or until March 31 - whichever comes first. Click below to reunite with your inner chef today! May your dinnertime dread be gone, The Weeknight Chef Team Weeknight Chef 555-345-678  info@weeknightchef.com Weeknightchef com',
+        sendTo: "me",
+        sendfrom: "Tuli",
+        sentAt: "05/05/20",
+        isRead: true,
+        isOpen: false,
+        mailAddress: `<abaJufi@gMails.com>`,
+        isDraft: false,
+        isSendMail: true,
+        isInbox: true,
+        isStarred: false,
     },
     {
         id: utilService.makeId(),
@@ -46,7 +64,7 @@ var gMails = [{
         subtitle: "",
         body: 'It’s time to start celebrate. This event is 100% free, but spots are limited - so sign up now! Hope to see you soon!',
         sendTo: "me",
-        sendfrom: "Rotem",
+        sendfrom: "Chen",
         sentAt: "09/05/20",
         isRead: false,
         isOpen: false,
@@ -69,22 +87,6 @@ var gMails = [{
         mailAddress: `<abaJufi@gMails.com>`,
         isDraft: false,
         isSendMail: false,
-        isInbox: true,
-        isStarred: false,
-    },
-    {
-        id: utilService.makeId(),
-        title: 'Your automatic payment is approaching',
-        subtitle: "",
-        body: 'Hi John,Over 40 former Weeknight Chef members took advantage of our special rejoin offer last week and we hope you’ll be next! Sign back up today and get your first month plus three dessert kits FREE! Don’t delay - the offer is only valid for the first 100 returning members or until March 31 - whichever comes first. Click below to reunite with your inner chef today! May your dinnertime dread be gone, The Weeknight Chef Team Weeknight Chef 555-345-678  info@weeknightchef.com Weeknightchef com',
-        sendTo: "me",
-        sendfrom: "Rotem",
-        sentAt: "05/05/20",
-        isRead: true,
-        isOpen: false,
-        mailAddress: `<abaJufi@gMails.com>`,
-        isDraft: false,
-        isSendMail: true,
         isInbox: true,
         isStarred: false,
     },
@@ -162,4 +164,15 @@ function addMail({ body, sendTo, title }, isDraft, isSendMail) {
         isStarred: false,
     }, )
     return Promise.resolve(gMails)
+}
+
+function removeMail(mailId) {
+    const idx = gMails.findIndex(mail => mail.id === mailId)
+    gMails.splice(idx, 1);
+    return Promise.resolve(gMails)
+}
+
+function getMailDeatails(mailId) {
+    const mail = gMails.find(mail => mail.id === mailId)
+    return Promise.resolve(mail)
 }
