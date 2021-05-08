@@ -2,10 +2,9 @@
     width: 260px;
     position: fixed;
     z-index: 1;
-    top: 150px;
+    top: 200px;
     left: 15px;
     overflow-x: hidden;
-    /* padding-top: 20px; */
 }
 
 .side-bar li {

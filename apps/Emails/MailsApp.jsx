@@ -53,8 +53,8 @@ export class AppEmail extends React.Component {
         return (
             <section className="mail-app">
                 <div className="mail-container flex"></div>
-                <MailsSideBar mails={mails} showFilterByProperties={this.showFilterByProperties} ></MailsSideBar>
                 <MailsFilter onSetFilter={this.onSetFilter} />
+                <MailsSideBar mails={mails} showFilterByProperties={this.showFilterByProperties} ></MailsSideBar>
                 <MailsList mails={mails} setSelectedMail={this.setSelectedMail} toggleMailShow={this.toggleMailShow} OnRemoveMail={this.OnRemoveMail} />
             </section>
         )

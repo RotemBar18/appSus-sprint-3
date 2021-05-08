@@ -5,7 +5,7 @@
 table {
     border: 1px solid rgb(194, 188, 188);
     border-collapse: collapse;
-    width: 70%;
+    width: 80%;
 }
 
 .mails-list {
@@ -23,13 +23,14 @@ tr {
 }
 
 td {
-    padding: 5px;
     cursor: pointer;
+    padding: 10px;
 }
 
 .mail-body,
 .mail-header {
     border: none;
+    line-height: 1.7em;
 }
 
 .row-disply-none {
@@ -59,9 +60,17 @@ td {
 .fa-trash {
     visibility: hidden;
     color: rgb(187, 185, 185);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
+.fa-envelope,
+.fa-envelope-open {
+    color: rgb(187, 185, 185);
+    font-size: 1.5rem;
+}
+
+.fa-envelope:hover,
+.fa-envelope-open:hover,
 .fa-trash:hover {
     color: grey;
 }
@@ -72,7 +81,6 @@ td {
 
 .mail-preview:hover .fa-trash {
     visibility: visible;
-    margin-top: 30%;
 }
 
 .mail-header .fas {

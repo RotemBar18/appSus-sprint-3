@@ -12,7 +12,6 @@ export class MailsFilter extends React.Component {
     handleChange = (ev) => {
         const field = ev.target.name
         const value = ev.target.value;
-        // const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value
         this.setState({ filterBy: { ...this.state.filterBy, [field]: value } }, () => {
             this.props.onSetFilter(this.state.filterBy)
         })
@@ -32,9 +31,8 @@ export class MailsFilter extends React.Component {
                 <label htmlFor="filter-by"></label>
                 <select className="filter-by" name="filter-by" id="filter-by">
                     <option value="text">text</option>
-                    <option value="date">date</option>
-                    <option value="title">title</option>
-                    <option value="from">from</option>
+                    <option value="from">read</option>
+                    <option value="date">unread</option>
                 </select>
             </form>
         )

@@ -1,11 +1,11 @@
 .add-mails-section {
     position: fixed;
-    width: 550px;
+    width: 450px;
     background-color: white;
     border: 1px solid #333;
     margin-left: 15px;
-    left: 15%;
-    top: 15%;
+    top: 25%;
+    justify-self: center;
 }
 
 .add-mail-modal .header {
@@ -54,7 +54,6 @@
     margin: 5px;
     padding: 8px;
     border-radius: 5px;
-    background-color: rgb(44, 199, 44);
 }
 
 .btn-add-mail.btn-save {
