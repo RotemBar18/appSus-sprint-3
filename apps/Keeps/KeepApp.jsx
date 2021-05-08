@@ -17,7 +17,7 @@ export class KeepApp extends React.Component {
 
     loadNotes() {
         noteService.query(this.state.searchBy).then((notes) => {
-            this.setState({ notes }, console.log(notes))
+            this.setState({ notes })
         })
     }
 
@@ -51,7 +51,6 @@ export class KeepApp extends React.Component {
     }
 
     onToggleTodo = (todo) => {
-        console.log(todo);
         noteService.toggleTodo(todo).then(
             this.loadNotes()
         )

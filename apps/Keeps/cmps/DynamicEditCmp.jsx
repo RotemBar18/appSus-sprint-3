@@ -7,7 +7,6 @@ import { EditEmail } from './EditEmail.jsx'
 export function DynamicEditCmp({ note, handleChange }) {
 
     const renderCmp = (note, handleChange) => {
-        console.log(note);
         switch (note.type) {
             case 'NoteText':
                 return <EditText note={note} handleChange={handleChange} />

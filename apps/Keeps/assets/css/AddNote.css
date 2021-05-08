@@ -29,9 +29,10 @@
     width: 15%;
     background-color: rgba(0, 0, 0, 0.13);
 }
+
 .note-types>*:active {
     position: relative;
-    top:2px
+    top: 2px
 }
 
 .add-note {
@@ -41,13 +42,13 @@
 input.new-note {
     width: 100%;
     outline: none;
-    font-size: 150%;
+    font-size: 50%;
     border-radius: 10px;
     border: 0.5px solid black
 }
 
 input.new-note:hover {
-    font-size: 170%;
+    font-size: 60%;
     border: 1px solid black
 }
 
@@ -63,11 +64,49 @@ input.new-note:active {
     cursor: pointer;
     transition: 0.3s;
 }
+
 .add-btn:hover {
     width: 2.3rem;
     height: 2.3rem;
 }
+
 .add-btn:active {
     position: relative;
-    top:2px
+    top: 2px
+}
+
+
+@media (min-width:420px) {
+    input.new-note {
+        font-size: 70%;
+    }
+    input.new-note:hover {
+        font-size: 80%;
+    }
+}
+@media (min-width:480px) {
+    input.new-note {
+        font-size: 90%;
+    }
+    input.new-note:hover {
+        font-size: 100%;
+    }
+}
+
+@media (min-width:720px) {
+    input.new-note {
+        font-size: 110%;
+    }
+    input.new-note:hover {
+        font-size: 120%;
+    }
+}
+
+@media (min-width:1050px) {
+    input.new-note {
+        font-size: 130%;
+    }
+    input.new-note:hover {
+        font-size: 140%;
+    }
 }

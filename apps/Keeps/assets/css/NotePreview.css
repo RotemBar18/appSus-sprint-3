@@ -70,3 +70,7 @@
     justify-content: space-around;
     color: gray;
 }
+
+.note ul{
+    align-self: flex-start;
+}
